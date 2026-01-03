@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.kaarigar.app-mergeDebugResources-62:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\SYS\\.gradle\\caches\\8.13\\transforms\\ee5ae8cb96d3ec501216b2079f47998a\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

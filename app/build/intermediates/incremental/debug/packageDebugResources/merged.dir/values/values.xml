@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue_dark">@color/wood_dark</color>
+    <color name="blue_light">@color/wood_light</color>
+    <color name="blue_primary">@color/wood_medium</color>
+    <color name="cream_background">#F1F8E9</color>
+    <color name="divider">#CFD8DC</color>
+    <color name="error_red">#D32F2F</color>
+    <color name="gold_star">#FFBA00</color>
+    <color name="gray_text">#757575</color>
+    <color name="hint_text">#9DAFA6</color>
+    <color name="md_theme_dark_background">#051F18</color>
+    <color name="md_theme_light_background">#F1F8E9</color>
+    <color name="primary_text">#1B2E26</color>
+    <color name="secondary_text">#4A665A</color>
+    <color name="success_green">#388E3C</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="wood_accent">#B46617</color>
+    <color name="wood_background">@color/cream_background</color>
+    <color name="wood_dark">#0C3B2E</color>
+    <color name="wood_light">#E8F5E9</color>
+    <color name="wood_medium">#6D9773</color>
+    <color name="wood_primary">@color/wood_dark</color>
+    <color name="wood_secondary">@color/wood_medium</color>
+    <string name="app_name">Kaarigar</string>
+    <string name="currency_symbol">₹</string>
+    <string name="gcm_defaultSenderId" translatable="false">247742869080</string>
+    <string name="google_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_app_id" translatable="false">1:247742869080:android:535a8771683b331fe3a42d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_storage_bucket" translatable="false">kaarigar-5eeb9.firebasestorage.app</string>
+    <string name="project_id" translatable="false">kaarigar-5eeb9</string>
+    <style name="Theme.Kaarigar" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/wood_dark</item> 
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/wood_light</item>
+        <item name="colorOnPrimaryContainer">@color/wood_dark</item>
+        
+        
+        <item name="colorSecondary">@color/wood_accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/wood_light</item>
+        <item name="colorOnSecondaryContainer">@color/wood_dark</item>
+
+        
+        <item name="android:windowBackground">@color/wood_light</item> 
+        <item name="android:colorBackground">@color/wood_light</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/wood_dark</item>
+        
+        
+         <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="Widget.Kaarigar.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="itemRippleColor">@color/wood_light</item>
+    </style>
+    <style name="Widget.Kaarigar.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/wood_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+    <style name="Widget.Kaarigar.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+</resources>

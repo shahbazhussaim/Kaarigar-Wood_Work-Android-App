@@ -1,0 +1,11 @@
+﻿
+build_errors.txt:27:./gradle
+w : e: file:///D:/
+build_errors.txt:33:Unresolv
+ed reference: 
+build_errors.txt:46: ence: 
+price:String) [    
+build_errors.txt:55:FAILURE:
+ Build failed 
+
+

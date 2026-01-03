@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sand_background"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".ui.customer.ShopFragment">
+
+    <!-- Main Content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp">
+
+        <!-- Header Area -->
+        <LinearLayout
+            android:id="@+id/shopHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnFilter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/glass_white"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="@color/teak_dark" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:text="Collection 2026"
+                android:textColor="@color/teak_dark"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <ImageButton
+                android:id="@+id/btnAddProduct"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/glass_white"
+                android:src="@android:drawable/ic_menu_add"
+                android:visibility="gone"
+                app:tint="@color/gold_accent" />
+
+        </LinearLayout>
+        
+        <!-- Premium Filter Chips -->
+        <HorizontalScrollView
+            android:id="@+id/scrollChips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/shopHeader">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true">
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All Items"
+                    android:checked="true"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSofa"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seating"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTable"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tables"
+                    app:chipBackgroundColor="@color/white"/>
+                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBed"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bedroom"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipStorage"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Storage"
+                    app:chipBackgroundColor="@color/white"/>
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!-- Product Grid -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollChips"
+            tools:listitem="@layout/item_product" />
+
+        <!-- Empty State with Style -->
+        <LinearLayout
+            android:id="@+id/llEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shopHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/wood_cabinet"
+                android:alpha="0.3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Our catalog is refreshing..."
+                android:textColor="@color/secondary_text"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Navigation Drawer (Modern Filter Panel) -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/filterDrawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/sand_background"
+        android:fitsSystemWindows="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="32dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refine View"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/teak_dark"
+                android:fontFamily="serif"/>
+                
+            <View
+                android:layout_width="60dp"
+                android:layout_height="4dp"
+                android:background="@color/gold_accent"
+                android:layout_marginTop="12dp"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Spectrum"
+                android:textStyle="bold"
+                android:textColor="@color/teak_medium"
+                android:layout_marginTop="40dp"
+                android:letterSpacing="0.1"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/priceSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:valueFrom="0"
+                android:valueTo="100000"
+                android:stepSize="5000"
+                app:thumbColor="@color/teak_dark"
+                app:trackColorActive="@color/teak_dark"
+                app:trackColorInactive="@color/oak_light"/>
+                
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Timber Type"
+                android:textStyle="bold"
+                android:textColor="@color/teak_medium"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="0.1"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Solid Teak"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Walnut"
+                    app:chipBackgroundColor="@color/white"/>
+                 <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rosewood"
+                    app:chipBackgroundColor="@color/white"/>
+            </com.google.android.material.chip.ChipGroup>
+            
+            <View
+                 android:layout_width="match_parent"
+                 android:layout_height="0dp"
+                 android:layout_weight="1"/>
+                 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApplyFilters"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Update Catalog"
+                style="@style/Widget.Kaarigar.Button"/>
+                
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearFilters"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Reset all"
+                android:textColor="@color/error_terracotta"/>
+            
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

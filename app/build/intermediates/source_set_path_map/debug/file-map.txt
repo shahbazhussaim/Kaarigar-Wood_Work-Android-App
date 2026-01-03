@@ -1,0 +1,67 @@
+com.kaarigar.app-browser-1.4.0-0 C:\Users\dell\.gradle\caches\8.13\transforms\05da56006d625811e2533d40d66eca68\transformed\browser-1.4.0\res
+com.kaarigar.app-lifecycle-livedata-2.7.0-1 C:\Users\dell\.gradle\caches\8.13\transforms\232a1fd1ced9adcadcfda7e3c3b2a57d\transformed\lifecycle-livedata-2.7.0\res
+com.kaarigar.app-jetified-lifecycle-process-2.7.0-2 C:\Users\dell\.gradle\caches\8.13\transforms\2bdb525e402c07479798b6683199d58b\transformed\jetified-lifecycle-process-2.7.0\res
+com.kaarigar.app-recyclerview-1.1.0-3 C:\Users\dell\.gradle\caches\8.13\transforms\2e413f83d8eb91011a6d27e82e3604bb\transformed\recyclerview-1.1.0\res
+com.kaarigar.app-cardview-1.0.0-4 C:\Users\dell\.gradle\caches\8.13\transforms\317fa17b3d906e009d89a807814b92e9\transformed\cardview-1.0.0\res
+com.kaarigar.app-lifecycle-livedata-core-2.7.0-5 C:\Users\dell\.gradle\caches\8.13\transforms\3af21f1231c93449442ba9ddd62ff3a6\transformed\lifecycle-livedata-core-2.7.0\res
+com.kaarigar.app-jetified-activity-ktx-1.8.2-6 C:\Users\dell\.gradle\caches\8.13\transforms\3dc0e344120c267d9c2e8a12904dfe0c\transformed\jetified-activity-ktx-1.8.2\res
+com.kaarigar.app-navigation-ui-ktx-2.7.6-7 C:\Users\dell\.gradle\caches\8.13\transforms\40293e9602a0fb80596547e0b202f61b\transformed\navigation-ui-ktx-2.7.6\res
+com.kaarigar.app-jetified-glide-4.16.0-8 C:\Users\dell\.gradle\caches\8.13\transforms\4801b7d6065a4cba85c2e8a3d5d1d5f0\transformed\jetified-glide-4.16.0\res
+com.kaarigar.app-jetified-fragment-ktx-1.6.2-9 C:\Users\dell\.gradle\caches\8.13\transforms\49aca982fdf5117b64086cdd40aa68e8\transformed\jetified-fragment-ktx-1.6.2\res
+com.kaarigar.app-constraintlayout-2.1.4-10 C:\Users\dell\.gradle\caches\8.13\transforms\49eee669c23f7a1e89892d80538bcdbb\transformed\constraintlayout-2.1.4\res
+com.kaarigar.app-core-1.12.0-11 C:\Users\dell\.gradle\caches\8.13\transforms\4b3e09722efc6b9f936f42ec25bdd799\transformed\core-1.12.0\res
+com.kaarigar.app-jetified-lifecycle-viewmodel-ktx-2.7.0-12 C:\Users\dell\.gradle\caches\8.13\transforms\517977ebf12a7d504937ccda84307d51\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\res
+com.kaarigar.app-databinding-runtime-8.2.0-13 C:\Users\dell\.gradle\caches\8.13\transforms\527668008ee789575be7480d954a0226\transformed\databinding-runtime-8.2.0\res
+com.kaarigar.app-jetified-core-ktx-1.12.0-14 C:\Users\dell\.gradle\caches\8.13\transforms\57de88a2b16860ee759c105b047b9e45\transformed\jetified-core-ktx-1.12.0\res
+com.kaarigar.app-jetified-savedstate-1.2.1-15 C:\Users\dell\.gradle\caches\8.13\transforms\5f7746962ccb2e7dfe7c7e6c9331d485\transformed\jetified-savedstate-1.2.1\res
+com.kaarigar.app-slidingpanelayout-1.2.0-16 C:\Users\dell\.gradle\caches\8.13\transforms\6078850b4690d9ff870a27a22e463e13\transformed\slidingpanelayout-1.2.0\res
+com.kaarigar.app-lifecycle-viewmodel-2.7.0-17 C:\Users\dell\.gradle\caches\8.13\transforms\63a4699da0ec6911e332c2f7ad1849c6\transformed\lifecycle-viewmodel-2.7.0\res
+com.kaarigar.app-navigation-ui-2.7.6-18 C:\Users\dell\.gradle\caches\8.13\transforms\6b6e33072d7768bc602a4677c21048e6\transformed\navigation-ui-2.7.6\res
+com.kaarigar.app-navigation-fragment-ktx-2.7.6-19 C:\Users\dell\.gradle\caches\8.13\transforms\6fc7ce004b05968fe99c3d02696feb0d\transformed\navigation-fragment-ktx-2.7.6\res
+com.kaarigar.app-databinding-adapters-8.2.0-20 C:\Users\dell\.gradle\caches\8.13\transforms\70d4381d7fd0fb957fdfc2f8174e3432\transformed\databinding-adapters-8.2.0\res
+com.kaarigar.app-material-1.11.0-21 C:\Users\dell\.gradle\caches\8.13\transforms\7519fe921d648694d0c26957f9932696\transformed\material-1.11.0\res
+com.kaarigar.app-navigation-runtime-ktx-2.7.6-22 C:\Users\dell\.gradle\caches\8.13\transforms\7a3fdd6bec7b83ac876dfd5c817729c8\transformed\navigation-runtime-ktx-2.7.6\res
+com.kaarigar.app-fragment-1.6.2-23 C:\Users\dell\.gradle\caches\8.13\transforms\7f49ec92194783117372159a08666e05\transformed\fragment-1.6.2\res
+com.kaarigar.app-navigation-common-ktx-2.7.6-24 C:\Users\dell\.gradle\caches\8.13\transforms\8280c551db2f837d1655da4ad52886bc\transformed\navigation-common-ktx-2.7.6\res
+com.kaarigar.app-navigation-fragment-2.7.6-25 C:\Users\dell\.gradle\caches\8.13\transforms\8948c47129fd6ccf7c57db5e343c1bcf\transformed\navigation-fragment-2.7.6\res
+com.kaarigar.app-jetified-profileinstaller-1.3.0-26 C:\Users\dell\.gradle\caches\8.13\transforms\8c75408645765abf0c77c9ac0b8663e2\transformed\jetified-profileinstaller-1.3.0\res
+com.kaarigar.app-jetified-play-services-base-18.0.1-27 C:\Users\dell\.gradle\caches\8.13\transforms\909cae6f3be8a19717db0df634ab50eb\transformed\jetified-play-services-base-18.0.1\res
+com.kaarigar.app-jetified-ads-adservices-java-1.0.0-beta05-28 C:\Users\dell\.gradle\caches\8.13\transforms\93727aefa70699c1134dd3725d788783\transformed\jetified-ads-adservices-java-1.0.0-beta05\res
+com.kaarigar.app-jetified-emoji2-1.2.0-29 C:\Users\dell\.gradle\caches\8.13\transforms\93e19123ceb12cc1c0e436096bbffb8e\transformed\jetified-emoji2-1.2.0\res
+com.kaarigar.app-core-runtime-2.2.0-30 C:\Users\dell\.gradle\caches\8.13\transforms\99a6daff0f14770e55d93a1c3368205e\transformed\core-runtime-2.2.0\res
+com.kaarigar.app-jetified-startup-runtime-1.1.1-31 C:\Users\dell\.gradle\caches\8.13\transforms\9e8bc3034281618047b73ab2d66cea71\transformed\jetified-startup-runtime-1.1.1\res
+com.kaarigar.app-jetified-play-services-basement-18.1.0-32 C:\Users\dell\.gradle\caches\8.13\transforms\9f96349f33262d233f35edaff96f86e8\transformed\jetified-play-services-basement-18.1.0\res
+com.kaarigar.app-jetified-annotation-experimental-1.3.0-33 C:\Users\dell\.gradle\caches\8.13\transforms\a0972356f7dd47efa81dff538d54f963\transformed\jetified-annotation-experimental-1.3.0\res
+com.kaarigar.app-jetified-room-ktx-2.6.1-34 C:\Users\dell\.gradle\caches\8.13\transforms\a274966707d1ad67b08fb819fd2ce0eb\transformed\jetified-room-ktx-2.6.1\res
+com.kaarigar.app-coordinatorlayout-1.1.0-35 C:\Users\dell\.gradle\caches\8.13\transforms\a5734da077989ebe0eba5ddff8f43fdd\transformed\coordinatorlayout-1.1.0\res
+com.kaarigar.app-jetified-activity-1.8.2-36 C:\Users\dell\.gradle\caches\8.13\transforms\b2d80090fa5f0508bd2a02426017ba2f\transformed\jetified-activity-1.8.2\res
+com.kaarigar.app-jetified-ads-adservices-1.0.0-beta05-37 C:\Users\dell\.gradle\caches\8.13\transforms\b7621fbd590e91efa19a1c328eb0fca8\transformed\jetified-ads-adservices-1.0.0-beta05\res
+com.kaarigar.app-transition-1.4.1-38 C:\Users\dell\.gradle\caches\8.13\transforms\b8ed4add5c755a15118d7db441f2a672\transformed\transition-1.4.1\res
+com.kaarigar.app-jetified-window-1.0.0-39 C:\Users\dell\.gradle\caches\8.13\transforms\beb0907995e58a5c99c49cb53b51144c\transformed\jetified-window-1.0.0\res
+com.kaarigar.app-jetified-play-services-measurement-api-21.5.0-40 C:\Users\dell\.gradle\caches\8.13\transforms\bf9658124c915f227e37b4469d7c22cf\transformed\jetified-play-services-measurement-api-21.5.0\res
+com.kaarigar.app-navigation-common-2.7.6-41 C:\Users\dell\.gradle\caches\8.13\transforms\c57b7bf50152fd1a3303fbec5539bc0c\transformed\navigation-common-2.7.6\res
+com.kaarigar.app-jetified-lifecycle-runtime-ktx-2.7.0-42 C:\Users\dell\.gradle\caches\8.13\transforms\c7e9762142c5dadd51544a15f360d9e2\transformed\jetified-lifecycle-runtime-ktx-2.7.0\res
+com.kaarigar.app-sqlite-2.4.0-43 C:\Users\dell\.gradle\caches\8.13\transforms\c971d91512b1baf36bb313e2a7f845f6\transformed\sqlite-2.4.0\res
+com.kaarigar.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-44 C:\Users\dell\.gradle\caches\8.13\transforms\cf441b7b951d5dbceabdd30b6d32b26c\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.kaarigar.app-appcompat-1.6.1-45 C:\Users\dell\.gradle\caches\8.13\transforms\d0789bb48956e038fa50ee650cd9140d\transformed\appcompat-1.6.1\res
+com.kaarigar.app-sqlite-framework-2.4.0-46 C:\Users\dell\.gradle\caches\8.13\transforms\d0e41a8e77bd0d3eba571fb03bc8d6b2\transformed\sqlite-framework-2.4.0\res
+com.kaarigar.app-navigation-runtime-2.7.6-47 C:\Users\dell\.gradle\caches\8.13\transforms\d50f135c2bd0851592ef12bf11068fd4\transformed\navigation-runtime-2.7.6\res
+com.kaarigar.app-room-runtime-2.6.1-48 C:\Users\dell\.gradle\caches\8.13\transforms\da5d20d722afa96cd3bb064c9c4d80c2\transformed\room-runtime-2.6.1\res
+com.kaarigar.app-jetified-lifecycle-livedata-core-ktx-2.7.0-49 C:\Users\dell\.gradle\caches\8.13\transforms\dc108d4f581868b36983d0d66c18eba2\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.kaarigar.app-jetified-firebase-common-20.4.2-50 C:\Users\dell\.gradle\caches\8.13\transforms\dcbab7c6e69df29e5c6c5b6a72e1b25b\transformed\jetified-firebase-common-20.4.2\res
+com.kaarigar.app-lifecycle-runtime-2.7.0-51 C:\Users\dell\.gradle\caches\8.13\transforms\dfcaf93cff08497de90c53ebf3977775\transformed\lifecycle-runtime-2.7.0\res
+com.kaarigar.app-jetified-lifecycle-service-2.7.0-52 C:\Users\dell\.gradle\caches\8.13\transforms\e27d76d871be980ee7e3faed10f9f3ac\transformed\jetified-lifecycle-service-2.7.0\res
+com.kaarigar.app-jetified-appcompat-resources-1.6.1-53 C:\Users\dell\.gradle\caches\8.13\transforms\e2a1e15ed0bdcd41145c6f90accd41f8\transformed\jetified-appcompat-resources-1.6.1\res
+com.kaarigar.app-jetified-savedstate-ktx-1.2.1-54 C:\Users\dell\.gradle\caches\8.13\transforms\f30d808d68292b53b2c1000c22c4ea91\transformed\jetified-savedstate-ktx-1.2.1\res
+com.kaarigar.app-jetified-viewpager2-1.0.0-55 C:\Users\dell\.gradle\caches\8.13\transforms\f37fbdf72872b582dd392a5f3028c2ce\transformed\jetified-viewpager2-1.0.0\res
+com.kaarigar.app-jetified-emoji2-views-helper-1.2.0-56 C:\Users\dell\.gradle\caches\8.13\transforms\f3efa45a952e21a507d0bcf362d0b176\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.kaarigar.app-drawerlayout-1.1.1-57 C:\Users\dell\.gradle\caches\8.13\transforms\f80d2cd691397041f298e96284c731b5\transformed\drawerlayout-1.1.1\res
+com.kaarigar.app-jetified-lifecycle-livedata-ktx-2.7.0-58 C:\Users\dell\.gradle\caches\8.13\transforms\fd36354d1b1321ba03f60ed1f0cedc16\transformed\jetified-lifecycle-livedata-ktx-2.7.0\res
+com.kaarigar.app-pngs-59 D:\Proj mad\Kaarigar Wood Work\app\build\generated\res\pngs\debug
+com.kaarigar.app-res-60 D:\Proj mad\Kaarigar Wood Work\app\build\generated\res\processDebugGoogleServices
+com.kaarigar.app-resValues-61 D:\Proj mad\Kaarigar Wood Work\app\build\generated\res\resValues\debug
+com.kaarigar.app-packageDebugResources-62 D:\Proj mad\Kaarigar Wood Work\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.kaarigar.app-packageDebugResources-63 D:\Proj mad\Kaarigar Wood Work\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.kaarigar.app-merged_res-64 D:\Proj mad\Kaarigar Wood Work\app\build\intermediates\merged_res\debug
+com.kaarigar.app-debug-65 D:\Proj mad\Kaarigar Wood Work\app\src\debug\res
+com.kaarigar.app-main-66 D:\Proj mad\Kaarigar Wood Work\app\src\main\res

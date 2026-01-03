@@ -1,0 +1,40 @@
+
+> Configure project :
+e: file:///C:/Users/black/OneDrive/Desktop/Kaarigar%20Wood%20Work/build.gradle.kts:6:1: Unexpected symbol
+e: file:///C:/Users/black/OneDrive/Desktop/Kaarigar%20Wood%20Work/build.gradle.kts:2:5: Unresolved reference: id
+e: file:///C:/Users/black/OneDrive/Desktop/Kaarigar%20Wood%20Work/build.gradle.kts:3:5: Unresolved reference: id
+e: file:///C:/Users/black/OneDrive/Desktop/Kaarigar%20Wood%20Work/build.gradle.kts:4:5: Unresolved reference: id
+e: file:///C:/Users/black/OneDrive/Desktop/Kaarigar%20Wood%20Work/build.gradle.kts:5:5: Unresolved reference: id
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\black\OneDrive\Desktop\Kaarigar Wood Work\build.gradle.kts' line: 2
+
+* What went wrong:
+Script compilation errors:
+
+  Line 2:     id("com.android.application") version "8.13.2" apply false
+              ^ Unresolved reference: id
+
+  Line 3:     id("org.jetbrains.kotlin.android") version "2.1.0" apply false
+              ^ Unresolved reference: id
+
+  Line 4:     id("com.google.devtools.ksp") version "2.1.0-1.0.29" apply false
+              ^ Unresolved reference: id
+
+  Line 5:     id("com.google.gms.google-services") version "4.4.2" apply false
+              ^ Unresolved reference: id
+
+  Line 6: }
+          ^ Unexpected symbol
+
+5 errors
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s

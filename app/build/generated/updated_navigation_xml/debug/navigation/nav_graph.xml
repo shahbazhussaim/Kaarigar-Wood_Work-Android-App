@@ -1,0 +1,233 @@
+<navigation
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/nav_graph"
+app:startDestination="@id/loginFragment" >
+
+<!-- Auth Flow -->
+<fragment
+    android:id="@+id/loginFragment"
+    android:name="com.kaarigar.ui.auth.LoginFragment"
+    android:label="Login"
+    tools:layout="@layout/fragment_login" >
+
+    <action
+        android:id="@+id/action_loginFragment_to_registerFragment"
+        app:destination="@id/registerFragment" />
+    <action
+        android:id="@+id/action_loginFragment_to_customerHomeFragment"
+        app:destination="@id/customerHomeFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_loginFragment_to_workerDashboardFragment"
+        app:destination="@id/workerDashboardFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+    <!-- Admin navigates to same home but will have extra permissions/UI -->
+    <action
+        android:id="@+id/action_loginFragment_to_adminDashboard"
+        app:destination="@id/adminDashboard"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+</fragment>
+<fragment
+    android:id="@+id/registerFragment"
+    android:name="com.kaarigar.ui.auth.RegisterFragment"
+    android:label="Register"
+    tools:layout="@layout/fragment_register" >
+
+    <action
+        android:id="@+id/action_registerFragment_to_customerHomeFragment"
+        app:destination="@id/customerHomeFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+</fragment>
+
+<!-- Main Tabs -->
+<fragment
+    android:id="@+id/customerHomeFragment"
+    android:name="com.kaarigar.ui.customer.CustomerHomeFragment"
+    android:label="Home"
+    tools:layout="@layout/fragment_customer_home" >
+
+    <action
+        android:id="@+id/action_home_to_shop"
+        app:destination="@id/shopFragment" />
+    <action
+        android:id="@+id/action_home_to_customOrder"
+        app:destination="@id/customOrderFragment" />
+    <action
+        android:id="@+id/action_home_to_maintenance"
+        app:destination="@id/maintenanceFragment" />
+    <action
+        android:id="@+id/action_home_to_cart"
+        app:destination="@id/cartFragment" />
+    <action
+        android:id="@+id/action_home_to_ordered"
+        app:destination="@id/orderedFragment" />
+    <action
+        android:id="@+id/action_home_to_requests"
+        app:destination="@id/requestsFragment" />
+    <action
+        android:id="@+id/action_home_to_productDetail"
+        app:destination="@id/productDetailFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/shopFragment"
+    android:name="com.kaarigar.ui.customer.ShopFragment"
+    android:label="Shop"
+    tools:layout="@layout/fragment_product_list" >
+
+    <action
+        android:id="@+id/action_shop_to_productDetail"
+        app:destination="@id/productDetailFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/maintenanceFragment"
+    android:name="com.kaarigar.ui.maintenance.MaintenanceFragment"
+    android:label="Maintenance"
+    tools:layout="@layout/fragment_maintenance_request" >
+
+    <action
+        android:id="@+id/action_maintenance_to_priceResult"
+        app:destination="@id/priceResultFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/customOrderFragment"
+    android:name="com.kaarigar.ui.customer.CustomOrderFragment"
+    android:label="Custom Order"
+    tools:layout="@layout/fragment_custom_order" />
+<fragment
+    android:id="@+id/profileFragment"
+    android:name="com.kaarigar.ui.customer.ProfileFragment"
+    android:label="Profile" >
+
+    <action
+        android:id="@+id/action_profile_to_ordered"
+        app:destination="@id/orderedFragment" />
+    <action
+        android:id="@+id/action_profile_to_requests"
+        app:destination="@id/requestsFragment" />
+
+</fragment>
+
+<!-- Sub Pages -->
+<fragment
+    android:id="@+id/productDetailFragment"
+    android:name="com.kaarigar.ui.customer.ProductDetailFragment"
+    android:label="Product Details"
+    tools:layout="@layout/fragment_product_detail" >
+
+    <argument
+        android:name="productId"
+        app:argType="string" />
+
+    <action
+        android:id="@+id/action_productDetail_to_cart"
+        app:destination="@id/cartFragment" />
+    <action
+        android:id="@+id/action_productDetail_to_checkout"
+        app:destination="@id/checkoutFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/cartFragment"
+    android:name="com.kaarigar.ui.customer.CartFragment"
+    android:label="Cart" >
+
+    <action
+        android:id="@+id/action_cart_to_checkout"
+        app:destination="@id/checkoutFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/checkoutFragment"
+    android:name="com.kaarigar.ui.customer.CheckoutFragment"
+    android:label="Checkout" >
+
+    <action
+        android:id="@+id/action_checkout_to_ordered"
+        app:destination="@id/orderedFragment"
+        app:popUpTo="@id/customerHomeFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/orderedFragment"
+    android:name="com.kaarigar.ui.customer.OrderedFragment"
+    android:label="My Orders" />
+<fragment
+    android:id="@+id/requestsFragment"
+    android:name="com.kaarigar.ui.customer.RequestsFragment"
+    android:label="My Requests" />
+<fragment
+    android:id="@+id/priceResultFragment"
+    android:name="com.kaarigar.ui.maintenance.PriceResultFragment"
+    android:label="Price Estimate" >
+
+    <action
+        android:id="@+id/action_priceResult_to_requests"
+        app:destination="@id/requestsFragment"
+        app:popUpTo="@id/maintenanceFragment"
+        app:popUpToInclusive="true" />
+
+</fragment>
+
+<!-- Admin Flow -->
+<fragment
+    android:id="@+id/adminDashboard"
+    android:name="com.kaarigar.ui.admin.AdminDashboardFragment"
+    android:label="Admin Dashboard"
+    tools:layout="@layout/fragment_admin_dashboard" >
+
+    <action
+        android:id="@+id/action_adminDashboard_to_addProduct"
+        app:destination="@id/addProductFragment" />
+    <action
+        android:id="@+id/action_adminDashboard_to_manageOrders"
+        app:destination="@id/manageOrdersFragment" />
+    <action
+        android:id="@+id/action_adminDashboard_to_manageWorkers"
+        app:destination="@id/manageWorkersFragment" />
+    <action
+        android:id="@+id/action_adminDashboard_to_manageRequests"
+        app:destination="@id/manageRequestsFragment" />
+    <action
+        android:id="@+id/action_adminDashboard_to_workerRegister"
+        app:destination="@id/workerRegisterFragment" />
+
+</fragment>
+<fragment
+    android:id="@+id/addProductFragment"
+    android:name="com.kaarigar.ui.admin.AddProductFragment"
+    android:label="Add Product"
+    tools:layout="@layout/fragment_add_product" />
+<fragment
+    android:id="@+id/manageOrdersFragment"
+    android:name="com.kaarigar.ui.admin.ManageOrdersFragment"
+    android:label="Manage Orders" />
+<fragment
+    android:id="@+id/manageWorkersFragment"
+    android:name="com.kaarigar.ui.admin.ManageWorkersFragment"
+    android:label="Manage Workers" />
+<fragment
+    android:id="@+id/manageRequestsFragment"
+    android:name="com.kaarigar.ui.admin.ManageRequestsFragment"
+    android:label="Manage Requests" />
+<fragment
+    android:id="@+id/workerRegisterFragment"
+    android:name="com.kaarigar.ui.admin.WorkerRegisterFragment"
+    android:label="Register Worker"
+    tools:layout="@layout/fragment_worker_register" />
+<fragment
+    android:id="@+id/workerDashboardFragment"
+    android:name="com.kaarigar.ui.worker.WorkerDashboardFragment"
+    android:label="Worker Dashboard"
+    tools:layout="@layout/fragment_worker_dashboard" />
+</navigation>

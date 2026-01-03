@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_background"
+    android:padding="24dp">
+
+    <!-- Background Accent -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/hero_banner"
+        android:scaleType="centerCrop"
+        android:alpha="0.06"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Master Dashboard"
+                android:textColor="@color/teak_dark"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+                
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnLogout"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/error_red"
+                app:cardBackgroundColor="@color/white">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_logout" 
+                    android:padding="12dp"
+                    app:tint="@color/error_red"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Stats Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="32dp">
+            
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="12dp"
+                style="@style/Widget.Kaarigar.Card.Glass">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvOrderCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/teak_dark"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Incoming Orders"
+                        android:textSize="12sp"
+                        android:textColor="@color/teak_medium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                style="@style/Widget.Kaarigar.Card.Glass">
+                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvRequestCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gold_accent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Inquiries"
+                        android:textSize="12sp"
+                        android:textColor="@color/teak_medium"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Controls -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Kaarigar.Card.Glass">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workshop Management"
+                    android:textStyle="bold"
+                    android:textColor="@color/teak_dark"
+                    android:layout_marginBottom="24dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Add New Creation"
+                    app:icon="@android:drawable/ic_input_add"
+                    style="@style/Widget.Kaarigar.Button"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnManageOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Manage Orders"
+                    app:icon="@android:drawable/ic_menu_agenda"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:cornerRadius="24dp"
+                    android:layout_marginBottom="16dp"/>
+                    
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnManageWorkers"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Workshop Team"
+                    app:icon="@android:drawable/ic_menu_myplaces"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:cornerRadius="24dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Service Inquiries"
+                    app:icon="@android:drawable/ic_menu_send"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:textColor="@color/teak_dark"
+                    app:strokeColor="@color/teak_dark"
+                    app:cornerRadius="24dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

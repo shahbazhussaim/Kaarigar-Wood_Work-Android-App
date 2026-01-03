@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sand_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="100dp">
+
+        <!-- Background Accent (Warm Gradients) -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/hero_banner"
+            android:alpha="0.1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Premium Header Area -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvLogoName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kaarigar"
+                    android:textColor="@color/teak_dark"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif-monospace"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivCart"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="8dp"
+                        android:background="@drawable/glass_white"
+                        android:src="@drawable/ic_shopping_bag"
+                        app:tint="@color/teak_dark"/>
+
+                    <ImageView
+                        android:id="@+id/ivOrders"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="12dp"
+                        android:padding="8dp"
+                        android:background="@drawable/glass_white"
+                        android:src="@android:drawable/ic_menu_agenda"
+                        app:tint="@color/teak_dark"/>
+
+                    <ImageView
+                        android:id="@+id/ivRequests"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="12dp"
+                        android:padding="8dp"
+                        android:background="@drawable/glass_white"
+                        android:src="@android:drawable/ic_menu_info_details"
+                        app:tint="@color/teak_dark"/>
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="12dp"
+                        android:padding="8dp"
+                        android:background="@drawable/glass_white"
+                        android:src="@drawable/ic_profile"
+                        app:tint="@color/teak_dark"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Modern Search Bar -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/glass_white"
+                    android:hint="Search premium furniture..."
+                    android:drawableStart="@drawable/ic_home"
+                    android:drawablePadding="12dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColorHint="@color/secondary_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Dynamic Hero Banner -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/heroCard"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hero_banner"
+                    android:scaleType="centerCrop"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/glass_dark"
+                    android:alpha="0.4"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="The Art of Woodwork"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Timeless designs, handcrafted for you."
+                        android:textColor="#E0E0E0"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExploreHero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Discover Our Craftsmanship"
+                        android:textAllCaps="false"
+                        android:textColor="@color/teak_dark"
+                        app:backgroundTint="@color/glass_white"
+                        app:cornerRadius="16dp"/>
+                </LinearLayout>
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Categories / Services Chips -->
+        <HorizontalScrollView
+            android:id="@+id/hsvCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/heroCard">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Living Room"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/white"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kitchen"
+                    app:chipBackgroundColor="@color/white"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Office"
+                    app:chipBackgroundColor="@color/white"
+                    android:layout_marginEnd="8dp"/>
+
+                 <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom Build"
+                    app:chipBackgroundColor="@color/teak_dark"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Featured Section (Horizontal List) -->
+        <TextView
+            android:id="@+id/tvFeaturedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Handpicked for You"
+            android:textColor="@color/teak_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toBottomOf="@id/hsvCategories"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <HorizontalScrollView
+            android:id="@+id/hsvFeatured"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/tvFeaturedTitle">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- Featured Card 1 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardFeatured1"
+                    android:layout_width="220dp"
+                    android:layout_height="300dp"
+                    style="@style/Widget.Kaarigar.Card.Wood"
+                    android:layout_marginEnd="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:src="@drawable/wood_cabinet"
+                            android:scaleType="centerCrop"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Modern Kitchen Cabinet"
+                                android:textColor="@color/teak_dark"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Scandinavian Light Oak"
+                                android:textSize="12sp"
+                                android:textColor="@color/secondary_text"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="₹ 45,000"
+                                android:textColor="@color/gold_accent"
+                                android:textStyle="bold"
+                                android:gravity="end"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Featured Card 2 (Custom Design) -->
+                <com.google.android.material.card.MaterialCardView
+                     android:id="@+id/cardCustomService"
+                    android:layout_width="220dp"
+                    android:layout_height="300dp"
+                    style="@style/Widget.Kaarigar.Card.Wood"
+                    app:cardBackgroundColor="@color/teak_dark">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="24dp"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/ic_custom_order"
+                            app:tint="@color/white"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Design Your Own"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Co-create with our expert architect."
+                            android:textColor="#B0BEC5"
+                            android:textSize="12sp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"/>
+                        <com.google.android.material.button.MaterialButton
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="24dp"
+                             android:text="Start Brief"
+                             style="@style/Widget.Material3.Button.TonalButton"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Our Artisans / Story -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/artisanCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            style="@style/Widget.Kaarigar.Card.Wood"
+            app:layout_constraintTop_toBottomOf="@id/hsvFeatured">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/artisan_working"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Our Artisans"
+                        android:textColor="@color/teak_dark"
+                        android:textSize="22sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Every piece is born from a legacy of craftsmanship. Our masters use age-old techniques combined with modern precision to bring timber to life."
+                        android:textColor="@color/secondary_text"
+                        android:lineSpacingExtra="4dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnStory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Read Our Story"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:textColor="@color/gold_accent"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Services Grid (Reimagined) -->
+        <TextView
+            android:id="@+id/tvServicesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Specialized Services"
+            android:textColor="@color/teak_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toBottomOf="@id/artisanCard"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <GridLayout
+            android:id="@+id/glServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:columnCount="2"
+            app:layout_constraintTop_toBottomOf="@id/tvServicesTitle">
+
+            <!-- Card 1: Maintenance -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMaintenanceService"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                style="@style/Widget.Kaarigar.Card.Wood">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_maintenance"
+                        app:tint="@color/teak_medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Repair &amp; Polish"
+                        android:textColor="@color/teak_dark"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Shop -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFurniture"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                style="@style/Widget.Kaarigar.Card.Wood">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_shopping_bag"
+                        app:tint="@color/gold_accent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Furniture"
+                        android:textColor="@color/teak_dark"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+             <!-- Card 3: Doors -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDoors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                style="@style/Widget.Kaarigar.Card.Wood">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_custom_order"
+                        app:tint="@color/teak_medium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Artisan Doors"
+                        android:textColor="@color/teak_dark"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+             <!-- Card 4: Kitchen -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardKitchen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                style="@style/Widget.Kaarigar.Card.Wood">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/gold_accent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Luxury Kitchen"
+                        android:textColor="@color/teak_dark"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </GridLayout>
+
+        <!-- Glassmorphic Testimonials Section -->
+        <FrameLayout
+            android:id="@+id/flFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@id/glServices">
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/hero_banner"
+                android:scaleType="centerCrop"
+                android:alpha="0.2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What Clients Say"
+                    android:textColor="@color/teak_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:orientation="horizontal">
+
+                        <!-- Feedback Card 1 -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Kaarigar.Card.Glass"
+                            android:layout_marginEnd="16dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="24dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="&quot;The walnut finish is breathing new life into our study. Phenomenal attention to detail.&quot;"
+                                    android:textColor="@color/teak_dark"
+                                    android:fontFamily="serif"
+                                    android:textStyle="italic"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:text="- Dr. Ahmed R."
+                                    android:textColor="@color/teak_medium"
+                                    android:textStyle="bold"
+                                    android:textSize="12sp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Feedback Card 2 -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.Kaarigar.Card.Glass">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="24dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="&quot;Expert craftsmen. The custom cabinet they built fits like a glove in my modern kitchen.&quot;"
+                                    android:textColor="@color/teak_dark"
+                                    android:fontFamily="serif"
+                                    android:textStyle="italic"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:text="- Sarah M."
+                                    android:textColor="@color/teak_medium"
+                                    android:textStyle="bold"
+                                    android:textSize="12sp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Final CTA Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/flFeedback">
+
+            <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Ready for a change?"
+                 android:textColor="@color/teak_medium"
+                  android:textSize="14sp"
+                 android:letterSpacing="0.1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Craft Your Dream Space"
+                android:textColor="@color/teak_dark"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGetQuote"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="24dp"
+                android:text="Get Instant Quote"
+                style="@style/Widget.Kaarigar.Button"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBrowseProduct"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="12dp"
+                android:text="Catalog 2026"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                app:strokeColor="@color/teak_dark"
+                android:textColor="@color/teak_dark"
+                 app:cornerRadius="24dp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

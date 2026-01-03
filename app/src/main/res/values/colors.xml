@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Premium Woodwork Palette -->
+    <color name="teak_dark">#2D1B10</color>
+    <color name="teak_medium">#5D4037</color>
+    <color name="oak_light">#D7CCC8</color>
+    <color name="gold_accent">#C5A059</color>
+    <color name="sand_background">#F5F5F0</color>
+    
+    <!-- Glassmorphic Translucency -->
+    <color name="glass_white">#B3FFFFFF</color>
+    <color name="glass_dark">#80000000</color>
+    <color name="glass_teak">#B32D1B10</color>
+
+    <!-- Status Colors -->
+    <color name="success_emerald">#2E7D32</color>
+    <color name="error_terracotta">#C62828</color>
+
+    <!-- UI Mappings -->
+    <color name="primary_text">#1A120B</color>
+    <color name="secondary_text">#4E342E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_text">#757575</color>
+    <color name="hint_text">#9E9E9E</color>
+    
+    <!-- Theme Backgrounds -->
+    <color name="md_theme_light_background">@color/sand_background</color>
+    <color name="md_theme_dark_background">#1A120B</color>
+
+    <!-- Compatibility Aliases -->
+    <color name="wood_dark">@color/teak_dark</color>
+    <color name="wood_medium">@color/teak_medium</color>
+    <color name="wood_accent">@color/gold_accent</color>
+    <color name="wood_light">@color/sand_background</color>
+    <color name="gold_star">@color/gold_accent</color>
+    <color name="blue_primary">@color/teak_medium</color>
+    <color name="blue_dark">@color/teak_dark</color>
+    <color name="blue_light">@color/oak_light</color>
+    <color name="wood_primary">@color/teak_dark</color>
+    <color name="wood_secondary">@color/teak_medium</color>
+    <color name="error_red">@color/error_terracotta</color>
+    <color name="cream_background">@color/sand_background</color>
+    <color name="transparent">#00000000</color>
+    <color name="wood_background">@color/sand_background</color>
+</resources>

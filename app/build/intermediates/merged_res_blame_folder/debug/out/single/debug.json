@@ -1,0 +1,174 @@
+[
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_login.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_activity_customer.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_customer.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\drawable_bg_chat_user.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\drawable\\bg_chat_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_activity_auth.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_auth.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_customer_home.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_customer_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_activity_admin.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_register.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_item_request.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/item_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_item_chat_ai.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_chat_ai.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_price_result.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_price_result.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_admin_dashboard.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_admin_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_item_worker.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_worker.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_request_detail.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_request_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\drawable_bg_chat_ai.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\drawable\\bg_chat_ai.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_register.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_product_detail.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_product_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_inventory.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_inventory.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\drawable_ic_launcher.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\drawable\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_item_product.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_product.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_worker_dashboard.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_worker_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_admin_dashboard.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_admin_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_activity_worker.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_worker.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_item_chat_user.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_chat_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\drawable_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\drawable\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_chat.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_chat.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_maintenance_request.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_maintenance_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_product_list.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_product_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_manage_workers.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_workers.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_worker_dashboard.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_worker_dashboard.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_inventory.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_inventory.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_maintenance_request.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_maintenance_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_custom_order.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_custom_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_item_request.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_maintenance.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_maintenance.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_custom_order.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_custom_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\drawable_bg_capsule_green.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\drawable\\bg_capsule_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/drawable_bg_circle_white.xml.flat",
+        "source": "com.kaarigar.app-main-66:/drawable/bg_circle_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\layout_fragment_request_detail.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_request_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-merged_res-64:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\dell\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.kaarigar.app-merged_res-64:/layout_fragment_manage_workers.xml.flat",
+        "source": "com.kaarigar.app-main-66:/layout/fragment_manage_workers.xml"
+    }
+]

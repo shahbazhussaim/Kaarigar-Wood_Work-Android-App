@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="error_red">#D32F2F</color>
+    <color name="gray_text">#616161</color>
+    <color name="light_gray">#E0E0E0</color>
+    <color name="md_theme_light_background">#FAF3E0</color>
+    <color name="md_theme_light_error">#BA1A1A</color>
+    <color name="md_theme_light_onBackground">#1F1B16</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_onPrimaryContainer">#3E2723</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_onSecondaryContainer">#3E2723</color>
+    <color name="md_theme_light_onSurface">#1F1B16</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_primary">#5D4037</color>
+    <color name="md_theme_light_primaryContainer">#D7CCC8</color>
+    <color name="md_theme_light_secondary">#8D6E63</color>
+    <color name="md_theme_light_secondaryContainer">#D7CCC8</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_tertiary">#D4A373</color>
+    <color name="premium_dark">#2D2D2D</color>
+    <color name="premium_gold">#FFD700</color>
+    <color name="premium_gray_bg">#F5F5F7</color>
+    <color name="role_admin">#1565C0</color>
+    <color name="role_customer">#5D4037</color>
+    <color name="role_worker">#2E7D32</color>
+    <color name="success_green">#4CAF50</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="wood_accent">#D4A373</color>
+    <color name="wood_background">#FAF3E0</color>
+    <color name="wood_card">#FFFFFF</color>
+    <color name="wood_primary">#5D4037</color>
+    <color name="wood_secondary">#8D6E63</color>
+    <string name="app_name">Kaarigar</string>
+    <string name="currency_symbol">₹</string>
+    <string name="gcm_defaultSenderId" translatable="false">247742869080</string>
+    <string name="google_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_app_id" translatable="false">1:247742869080:android:535a8771683b331fe3a42d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_storage_bucket" translatable="false">kaarigar-5eeb9.firebasestorage.app</string>
+    <string name="project_id" translatable="false">kaarigar-5eeb9</string>
+    <style name="Base.Theme.Kaarigar" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+
+        <item name="android:statusBarColor">@color/wood_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/md_theme_light_background</item>
+    </style>
+    <style name="Theme.Kaarigar" parent="Base.Theme.Kaarigar"/>
+</resources>

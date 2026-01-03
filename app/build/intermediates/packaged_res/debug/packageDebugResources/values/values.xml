@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="blue_dark">@color/teak_dark</color>
+    <color name="blue_light">@color/oak_light</color>
+    <color name="blue_primary">@color/teak_medium</color>
+    <color name="cream_background">@color/sand_background</color>
+    <color name="error_red">@color/error_terracotta</color>
+    <color name="error_terracotta">#C62828</color>
+    <color name="glass_dark">#80000000</color>
+    <color name="glass_teak">#B32D1B10</color>
+    <color name="glass_white">#B3FFFFFF</color>
+    <color name="gold_accent">#C5A059</color>
+    <color name="gold_star">@color/gold_accent</color>
+    <color name="gray_text">#757575</color>
+    <color name="hint_text">#9E9E9E</color>
+    <color name="md_theme_dark_background">#1A120B</color>
+    <color name="md_theme_light_background">@color/sand_background</color>
+    <color name="oak_light">#D7CCC8</color>
+    <color name="primary_text">#1A120B</color>
+    <color name="sand_background">#F5F5F0</color>
+    <color name="secondary_text">#4E342E</color>
+    <color name="success_emerald">#2E7D32</color>
+    <color name="teak_dark">#2D1B10</color>
+    <color name="teak_medium">#5D4037</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="wood_accent">@color/gold_accent</color>
+    <color name="wood_background">@color/sand_background</color>
+    <color name="wood_dark">@color/teak_dark</color>
+    <color name="wood_light">@color/sand_background</color>
+    <color name="wood_medium">@color/teak_medium</color>
+    <color name="wood_primary">@color/teak_dark</color>
+    <color name="wood_secondary">@color/teak_medium</color>
+    <string name="app_name">Kaarigar</string>
+    <string name="currency_symbol">₹</string>
+    <string name="gcm_defaultSenderId" translatable="false">247742869080</string>
+    <string name="google_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_app_id" translatable="false">1:247742869080:android:535a8771683b331fe3a42d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCvP9qrg72KyqujhWQwZO99mRYdHuo3wMs</string>
+    <string name="google_storage_bucket" translatable="false">kaarigar-5eeb9.firebasestorage.app</string>
+    <string name="project_id" translatable="false">kaarigar-5eeb9</string>
+    <style name="Theme.Kaarigar" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/teak_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/oak_light</item>
+        <item name="colorOnPrimaryContainer">@color/teak_dark</item>
+        
+        
+        <item name="colorSecondary">@color/gold_accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        
+        <item name="android:windowBackground">@color/sand_background</item>
+        <item name="android:colorBackground">@color/sand_background</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/teak_dark</item>
+        
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Widget.Kaarigar.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/glass_white</item>
+        <item name="itemIconTint">@color/teak_dark</item>
+        <item name="itemTextColor">@color/teak_dark</item>
+        <item name="itemRippleColor">@color/oak_light</item>
+    </style>
+    <style name="Widget.Kaarigar.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/teak_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="Widget.Kaarigar.Card.Glass" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/glass_white</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/white</item>
+    </style>
+    <style name="Widget.Kaarigar.Card.Wood" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+</resources>

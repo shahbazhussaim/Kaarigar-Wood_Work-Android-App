@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Kaarigar" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/blue_light</item>
+        <item name="colorOnPrimary">@color/blue_dark</item>
+        <item name="colorPrimaryContainer">@color/blue_dark</item>
+        <item name="colorOnPrimaryContainer">@color/blue_light</item>
+        
+        
+        <item name="colorSecondary">@color/wood_accent</item>
+        <item name="colorOnSecondary">@color/wood_dark</item>
+        <item name="colorSecondaryContainer">@color/wood_medium</item>
+        <item name="colorOnSecondaryContainer">@color/wood_light</item>
+
+        
+        <item name="android:windowBackground">@color/md_theme_dark_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="colorSurface">@color/md_theme_dark_background</item>
+        <item name="colorOnSurface">@color/white</item>
+        
+        
+         <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="Widget.Kaarigar.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/blue_light</item>
+        <item name="itemTextColor">@color/blue_light</item>
+        <item name="backgroundTint">#1E1E1E</item>
+        <item name="itemRippleColor">@color/blue_primary</item>
+    </style>
+    <style name="Widget.Kaarigar.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/blue_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    <style name="Widget.Kaarigar.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">#1E1E1E</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+</resources>
