@@ -112,7 +112,7 @@
                 android:layout_height="64dp"
                 android:text="Proceed to Secure Checkout"
                 android:layout_marginTop="20dp"
-                style="@style/Widget.Kaarigar.Button"/>
+                style="@style/Widget.Karigar.Button"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

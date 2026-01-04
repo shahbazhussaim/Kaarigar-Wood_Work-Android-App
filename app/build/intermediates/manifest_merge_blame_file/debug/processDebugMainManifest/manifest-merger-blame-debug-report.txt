@@ -66,8 +66,8 @@
 35
 36    <application
 36-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:12:5-38:19
-37        android:name="com.kaarigar.KaarigarApp"
-37-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:13:9-36
+37        android:name="com.kaarigar.KarigarApp"
+37-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:13:9-35
 38        android:allowBackup="true"
 38-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:14:9-35
 39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -87,8 +87,8 @@
 47        android:supportsRtl="true"
 47-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:20:9-35
 48        android:testOnly="true"
-49        android:theme="@style/Theme.Kaarigar" >
-49-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:21:9-46
+49        android:theme="@style/Theme.Karigar" >
+49-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:21:9-45
 50        <activity
 50-->D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:24:9-31:20
 51            android:name="com.kaarigar.ui.auth.AuthActivity"

@@ -44,7 +44,9 @@ class WorkerRegisterFragment : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()) {
                 createWorkerAccount(email, password, name, role, phone)
             } else {
-                Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                context?.let {
+                    Toast.makeText(it, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -62,27 +64,15 @@ class WorkerRegisterFragment : Fragment() {
         try {
             // 1. Initialize Secondary App (safely)
             val appName = "WorkerApp"
-            val existingApps = com.google.firebase.FirebaseApp.getApps(requireContext())
-            var secondaryApp: com.google.firebase.FirebaseApp? = null
-            
-            for (app in existingApps) {
-                if (app.name == appName) {
-                    secondaryApp = app
-                    break
-                }
-            }
-            
-            if (secondaryApp == null) {
-                val options = com.google.firebase.FirebaseApp.getInstance().options
-                secondaryApp = com.google.firebase.FirebaseApp.initializeApp(
-                    requireContext(),
-                    options,
-                    appName
-                )
+            val defaultOptions = com.google.firebase.FirebaseApp.getInstance().options
+            val secondaryApp = try {
+                com.google.firebase.FirebaseApp.getInstance(appName)
+            } catch (e: Exception) {
+                com.google.firebase.FirebaseApp.initializeApp(requireContext(), defaultOptions, appName)
             }
 
             // 2. Get Auth instance for this app
-            val workerAuth = com.google.firebase.auth.FirebaseAuth.getInstance(secondaryApp!!)
+            val workerAuth = com.google.firebase.auth.FirebaseAuth.getInstance(secondaryApp)
 
             // 3. Create User
             workerAuth
@@ -122,31 +112,43 @@ class WorkerRegisterFragment : Fragment() {
                         "timestamp" to System.currentTimeMillis()
                 )
 
-        // Use the Default Firestore (Admin's instance) to save the data
-        FirebaseFirestore.getInstance()
-                .collection("users")
-                .document(uid)
-                .set(userMap)
-                .addOnSuccessListener {
-                    if (_binding != null) {
-                        binding.progressBar.visibility = View.GONE
-                        binding.btnRegister.isEnabled = true
-                        Toast.makeText(context, "Worker Added Successfully!", Toast.LENGTH_SHORT).show()
-                        findNavController().popBackStack()
-                    }
+        val db = FirebaseFirestore.getInstance()
+        val batch = db.batch()
+
+        val userDoc = db.collection("users").document(uid)
+        batch.set(userDoc, userMap)
+
+        val workerDoc = db.collection("workers").document(uid)
+        val workerMap = hashMapOf(
+            "workerId" to uid,
+            "name" to name,
+            "email" to email,
+            "isActive" to true,
+            "createdAt" to com.google.firebase.Timestamp.now()
+        )
+        batch.set(workerDoc, workerMap)
+
+        batch.commit()
+            .addOnSuccessListener {
+                if (_binding != null) {
+                    binding.progressBar.visibility = View.GONE
+                    binding.btnRegister.isEnabled = true
+                    Toast.makeText(context, "Worker Profile Created Successfully!", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
                 }
-                .addOnFailureListener { e ->
-                    // Account created but DB failed. This is tricky.
-                    // In production, we'd delete the auth user.
-                    handleError("Auth created but DB failed: ${e.message}")
-                }
+            }
+            .addOnFailureListener { e ->
+                handleError("Failed to save worker: ${e.message}")
+            }
     }
 
     private fun handleError(msg: String) {
         if (_binding != null) {
             binding.progressBar.visibility = View.GONE
             binding.btnRegister.isEnabled = true
-            Toast.makeText(context, "Error: $msg", Toast.LENGTH_LONG).show()
+            context?.let {
+                Toast.makeText(it, "Error: $msg", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

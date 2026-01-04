@@ -32,14 +32,24 @@ class ProductAdapter(
         holder.binding.tvPrice.text = "₹ ${product.basePrice}"
 
         if (!product.imageUrl.isNullOrEmpty()) {
-            com.bumptech.glide.Glide.with(holder.itemView.context)
-                    .load(product.imageUrl)
-                    .placeholder(
-                            R.drawable.bg_circle_white
-                    ) // Use existing drawable as placeholder for now
-                    .into(holder.binding.ivProduct)
+            if (product.imageUrl.startsWith("local://")) {
+                val resourceName = product.imageUrl.replace("local://", "")
+                val resId = holder.itemView.context.resources.getIdentifier(
+                    resourceName, "drawable", holder.itemView.context.packageName
+                )
+                if (resId != 0) {
+                    holder.binding.ivProduct.setImageResource(resId)
+                } else {
+                    holder.binding.ivProduct.setImageResource(R.drawable.wood_cabinet)
+                }
+            } else {
+                com.bumptech.glide.Glide.with(holder.itemView.context)
+                        .load(product.imageUrl)
+                        .placeholder(R.drawable.hero_banner)
+                        .into(holder.binding.ivProduct)
+            }
         } else {
-            holder.binding.ivProduct.setImageResource(R.drawable.bg_circle_white)
+            holder.binding.ivProduct.setImageResource(R.drawable.wood_cabinet)
         }
 
         holder.itemView.setOnClickListener { onProductClick(product) }

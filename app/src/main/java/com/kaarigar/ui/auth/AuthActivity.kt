@@ -29,14 +29,16 @@ class AuthActivity : AppCompatActivity() {
         FirebaseFirestore.getInstance()
             .collection("users").document(uid).get()
             .addOnSuccessListener { doc ->
-                val role = doc.getString("role") ?: "CUSTOMER"
-                navigateToRoleActivity(role)
+                if (doc.exists()) {
+                    val role = doc.getString("role") ?: "CUSTOMER"
+                    navigateToRoleActivity(role.trim().uppercase())
+                } else {
+                    navigateToRoleActivity("CUSTOMER")
+                }
             }
             .addOnFailureListener {
-                // If firestore fails, default to login
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.auth_container, LoginFragment())
-                    .commit()
+                // If firestore fails, we are already at AuthActivity which usually displays LoginFragment
+                // Don't restart transaction to avoid crashes
             }
     }
 

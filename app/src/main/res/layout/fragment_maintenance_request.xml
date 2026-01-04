@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            style="@style/Widget.Kaarigar.Card.Glass">
+            style="@style/Widget.Karigar.Card.Glass">
             
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,6 +72,27 @@
                         android:gravity="top"
                         android:inputType="textMultiLine"
                         android:lines="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Your Contact Number"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/teak_dark"
+                    app:hintTextColor="@color/teak_dark"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusBottomEnd="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
@@ -124,7 +145,7 @@
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            style="@style/Widget.Kaarigar.Button"
+            style="@style/Widget.Karigar.Button"
             android:text="Request Expert Care" />
 
     </LinearLayout>

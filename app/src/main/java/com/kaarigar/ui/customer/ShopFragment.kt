@@ -32,14 +32,47 @@ class ShopFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupUI()
-        loadProducts()
+        
+        val initialCategory = arguments?.getString("category")
+        if (initialCategory != null) {
+            selectCategoryChip(initialCategory)
+            loadProducts(initialCategory)
+        } else {
+            loadProducts()
+        }
     }
+
+    private fun selectCategoryChip(category: String) {
+        val chipId = when (category) {
+            "Sofa" -> R.id.chipSofa
+            "Table" -> R.id.chipTable
+            "Bed" -> R.id.chipBed
+            "Storage" -> R.id.chipStorage
+            "Kitchen" -> R.id.chipKitchen
+            "Artisan Door" -> R.id.chipDoors
+            else -> R.id.chipAll
+        }
+        binding.chipGroupCategories.check(chipId)
+    }
+
+    private val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
+    private lateinit var adapter: ProductAdapter
+    private var allProducts = listOf<ProductEntity>()
 
     private fun setupUI() {
         // Filter Drawer Toggle
         binding.btnFilter.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
+
+        // Real-time Search
+        binding.etSearch.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterProducts(s.toString())
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
 
         // Chip Categories
         binding.chipGroupCategories.setOnCheckedStateChangeListener { group, checkedIds ->
@@ -52,18 +85,28 @@ class ShopFragment : Fragment() {
             }
         }
 
-        // Admin Check (Mock - assume we check AuthRepository or Prefs)
-        // val isAdmin = ...
-        // if(isAdmin) binding.btnAddProduct.visibility = View.VISIBLE
-
         binding.btnApplyFilters.setOnClickListener {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-            // Apply logic
         }
     }
 
-    private val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
-    private lateinit var adapter: ProductAdapter
+    private fun filterProducts(query: String) {
+        val filtered = allProducts.filter {
+            it.name.contains(query, ignoreCase = true) ||
+            it.description.contains(query, ignoreCase = true) ||
+            it.category.contains(query, ignoreCase = true)
+        }
+        
+        adapter.updateList(filtered)
+        
+        if (filtered.isEmpty()) {
+            binding.llEmpty.visibility = View.VISIBLE
+            binding.rvProductList.visibility = View.GONE
+        } else {
+            binding.llEmpty.visibility = View.GONE
+            binding.rvProductList.visibility = View.VISIBLE
+        }
+    }
 
     private fun loadProducts(category: String? = null) {
         val collection = db.collection("products")
@@ -93,6 +136,16 @@ class ShopFragment : Fragment() {
                                         null
                                 )
                             }
+                    
+                    allProducts = products
+                    
+                    if (products.isNotEmpty()) {
+                        binding.llEmpty.visibility = View.GONE
+                        binding.rvProductList.visibility = View.VISIBLE
+                    } else {
+                        binding.llEmpty.visibility = View.VISIBLE
+                        binding.rvProductList.visibility = View.GONE
+                    }
 
                     if (::adapter.isInitialized) {
                         adapter.updateList(products)

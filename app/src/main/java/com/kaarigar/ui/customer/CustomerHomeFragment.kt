@@ -9,6 +9,13 @@ import androidx.navigation.fragment.findNavController
 import com.kaarigar.R
 import com.kaarigar.databinding.FragmentCustomerHomeBinding
 import com.kaarigar.data.local.entity.ProductEntity
+import android.content.Intent
+import com.google.firebase.auth.FirebaseAuth
+import com.kaarigar.ui.auth.AuthActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import com.kaarigar.KarigarApp
 
 class CustomerHomeFragment : Fragment() {
 
@@ -28,6 +35,7 @@ class CustomerHomeFragment : Fragment() {
         
         setupTopBar()
         setupServices()
+        setupAIChat()
         setupBottomCTA()
     }
 
@@ -41,6 +49,17 @@ class CustomerHomeFragment : Fragment() {
         }
         binding.ivRequests.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_requests)
+        }
+        binding.btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val database = (requireActivity().application as KarigarApp).database
+             CoroutineScope(Dispatchers.IO).launch {
+                 database.userDao().clearUsers()
+             }
+            val intent = Intent(requireContext(), AuthActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 
@@ -65,11 +84,18 @@ class CustomerHomeFragment : Fragment() {
         // Other categories can go to Shop with filter argument if we implement that
         // For now, let's point them to Shop
         binding.cardDoors.setOnClickListener {
-            // Navigate to shop with arg? For now just shop.
-             findNavController().navigate(R.id.action_home_to_shop)
+             val bundle = Bundle().apply { putString("category", "Artisan Door") }
+             findNavController().navigate(R.id.action_home_to_shop, bundle)
         }
         binding.cardKitchen.setOnClickListener {
-             findNavController().navigate(R.id.action_home_to_shop)
+             val bundle = Bundle().apply { putString("category", "Kitchen") }
+             findNavController().navigate(R.id.action_home_to_shop, bundle)
+        }
+    }
+    
+    private fun setupAIChat() {
+        binding.fabAIChat.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_chat)
         }
     }
     

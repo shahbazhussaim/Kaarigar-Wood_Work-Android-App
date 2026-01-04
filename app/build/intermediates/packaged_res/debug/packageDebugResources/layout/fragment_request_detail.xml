@@ -64,17 +64,57 @@
                 android:layout_height="wrap_content"
                 android:text="Status: "
                 android:textSize="16sp"
+                android:textColor="@color/teak_medium"
                 android:layout_marginTop="8dp"/>
-                
+
+            <TextView
+                android:id="@+id/tvCustomerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer Phone: "
+                android:textSize="16sp"
+                android:textColor="@color/wood_primary"
+                android:layout_marginTop="8dp"/>
+
+            <ImageView
+                android:id="@+id/ivProjectImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCallCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="72dp"
+        android:text="Call Customer"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:icon="@android:drawable/stat_sys_phone_call"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAcceptJob"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Accept This Job"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:cornerRadius="12dp"
+        app:backgroundTint="@color/green_forest"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateStatus"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Update Status"
+        android:text="Mark Completed"
         android:textSize="16sp"
+        android:visibility="gone"
         app:cornerRadius="12dp"
         app:backgroundTint="@color/wood_primary"
         app:layout_constraintBottom_toBottomOf="parent" />

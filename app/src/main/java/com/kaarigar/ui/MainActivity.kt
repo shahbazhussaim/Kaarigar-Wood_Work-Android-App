@@ -19,18 +19,19 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
         navController = navHostFragment.navController
-        
+
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setupWithNavController(navController)
-        
+
         // Hide bottom nav on specific destinations
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment, 
-                R.id.registerFragment, 
+
+                R.id.loginFragment,
+                R.id.registerFragment,
                 R.id.workerDashboardFragment,
-                R.id.checkoutFragment,
                 R.id.adminDashboard,
                 R.id.addProductFragment,
                 R.id.manageOrdersFragment,
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.manageRequestsFragment -> {
                     bottomNav.visibility = View.GONE
                 }
+
                 else -> {
                     bottomNav.visibility = View.VISIBLE
                 }

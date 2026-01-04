@@ -16,7 +16,7 @@ class GeminiViewModel(private val repository: GeminiRepository) : ViewModel() {
 
     fun askGemini(prompt: String) {
         val woodworkPrompt =
-                "You are a woodwork expert assistant for the 'Kaarigar' app. " +
+                "You are a woodwork expert assistant for the 'Karigar' app. " +
                         "Answer the following query related to woodwork, carpentry, or furniture: $prompt"
         viewModelScope.launch {
             repository.generateText(woodworkPrompt).collect { result ->
@@ -28,10 +28,14 @@ class GeminiViewModel(private val repository: GeminiRepository) : ViewModel() {
     private val _pricePrediction = MutableLiveData<Resource<String>>()
     val pricePrediction: LiveData<Resource<String>> = _pricePrediction
 
-    fun predictPrice(category: String, description: String) {
+    fun predictPrice(category: String, description: String, image: android.graphics.Bitmap? = null) {
         viewModelScope.launch {
-            repository.predictPrice(category, description).collect { result ->
-                _pricePrediction.value = result
+            try {
+                repository.predictPrice(category, description, image).collect { result ->
+                    _pricePrediction.value = result
+                }
+            } catch (e: Exception) {
+                _pricePrediction.value = Resource.error("Expert service unavailable", null)
             }
         }
     }

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.kaarigar.KaarigarApp
+import com.kaarigar.KarigarApp
 import com.kaarigar.R
 import com.kaarigar.databinding.FragmentProfileBinding
 import com.kaarigar.ui.auth.AuthActivity
@@ -47,7 +47,7 @@ class ProfileFragment : Fragment() {
         
         binding.btnLogout.setOnClickListener {
             auth.signOut()
-            val database = (requireActivity().application as KaarigarApp).database
+            val database = (requireActivity().application as KarigarApp).database
             CoroutineScope(Dispatchers.IO).launch {
                 database.userDao().clearUsers()
             }

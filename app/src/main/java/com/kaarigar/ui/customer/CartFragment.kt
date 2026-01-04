@@ -94,10 +94,14 @@ class CartFragment : Fragment() {
         db.collection("carts").document(userId).collection("items").document(id)
             .delete()
             .addOnSuccessListener {
-                cartItems.removeAt(position)
-                adapter.notifyItemRemoved(position)
-                updateSummary()
-                binding.tvEmptyCart.visibility = if (cartItems.isEmpty()) View.VISIBLE else View.GONE
+                if (position >= 0 && position < cartItems.size) {
+                    cartItems.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    updateSummary()
+                    binding.tvEmptyCart.visibility = if (cartItems.isEmpty()) View.VISIBLE else View.GONE
+                } else {
+                    loadCartItems() // Fallback refresh
+                }
             }
     }
 

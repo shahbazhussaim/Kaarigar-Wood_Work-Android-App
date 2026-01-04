@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,6 +22,9 @@ import java.lang.String;
 public final class FragmentManageRequestsBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final Chip chipAccepted;
 
   @NonNull
   public final Chip chipAll;
@@ -40,16 +44,36 @@ public final class FragmentManageRequestsBinding implements ViewBinding {
   @NonNull
   public final LinearLayout topBar;
 
-  private FragmentManageRequestsBinding(@NonNull ConstraintLayout rootView, @NonNull Chip chipAll,
-      @NonNull Chip chipCompleted, @NonNull ChipGroup chipGroupStatus, @NonNull Chip chipPending,
-      @NonNull RecyclerView rvRequests, @NonNull LinearLayout topBar) {
+  @NonNull
+  public final TextView tvAcceptedRequests;
+
+  @NonNull
+  public final TextView tvEmptyRequests;
+
+  @NonNull
+  public final TextView tvPendingRequests;
+
+  @NonNull
+  public final TextView tvTotalRequests;
+
+  private FragmentManageRequestsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull Chip chipAccepted, @NonNull Chip chipAll, @NonNull Chip chipCompleted,
+      @NonNull ChipGroup chipGroupStatus, @NonNull Chip chipPending,
+      @NonNull RecyclerView rvRequests, @NonNull LinearLayout topBar,
+      @NonNull TextView tvAcceptedRequests, @NonNull TextView tvEmptyRequests,
+      @NonNull TextView tvPendingRequests, @NonNull TextView tvTotalRequests) {
     this.rootView = rootView;
+    this.chipAccepted = chipAccepted;
     this.chipAll = chipAll;
     this.chipCompleted = chipCompleted;
     this.chipGroupStatus = chipGroupStatus;
     this.chipPending = chipPending;
     this.rvRequests = rvRequests;
     this.topBar = topBar;
+    this.tvAcceptedRequests = tvAcceptedRequests;
+    this.tvEmptyRequests = tvEmptyRequests;
+    this.tvPendingRequests = tvPendingRequests;
+    this.tvTotalRequests = tvTotalRequests;
   }
 
   @Override
@@ -79,6 +103,12 @@ public final class FragmentManageRequestsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.chipAccepted;
+      Chip chipAccepted = ViewBindings.findChildViewById(rootView, id);
+      if (chipAccepted == null) {
+        break missingId;
+      }
+
       id = R.id.chipAll;
       Chip chipAll = ViewBindings.findChildViewById(rootView, id);
       if (chipAll == null) {
@@ -115,8 +145,33 @@ public final class FragmentManageRequestsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentManageRequestsBinding((ConstraintLayout) rootView, chipAll, chipCompleted,
-          chipGroupStatus, chipPending, rvRequests, topBar);
+      id = R.id.tvAcceptedRequests;
+      TextView tvAcceptedRequests = ViewBindings.findChildViewById(rootView, id);
+      if (tvAcceptedRequests == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEmptyRequests;
+      TextView tvEmptyRequests = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmptyRequests == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPendingRequests;
+      TextView tvPendingRequests = ViewBindings.findChildViewById(rootView, id);
+      if (tvPendingRequests == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTotalRequests;
+      TextView tvTotalRequests = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotalRequests == null) {
+        break missingId;
+      }
+
+      return new FragmentManageRequestsBinding((ConstraintLayout) rootView, chipAccepted, chipAll,
+          chipCompleted, chipGroupStatus, chipPending, rvRequests, topBar, tvAcceptedRequests,
+          tvEmptyRequests, tvPendingRequests, tvTotalRequests);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

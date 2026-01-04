@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_home_to_productDetail"
             app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_home_to_chat"
+            app:destination="@id/chatFragment" />
     </fragment>
 
     <fragment
@@ -97,7 +100,11 @@
         android:id="@+id/customOrderFragment"
         android:name="com.kaarigar.ui.customer.CustomOrderFragment"
         android:label="Custom Order"
-        tools:layout="@layout/fragment_custom_order" />
+        tools:layout="@layout/fragment_custom_order">
+        <action
+            android:id="@+id/action_custom_to_checkout"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
@@ -141,6 +148,24 @@
         android:id="@+id/checkoutFragment"
         android:name="com.kaarigar.ui.customer.CheckoutFragment"
         android:label="Checkout">
+        <argument
+            android:name="totalAmount"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="isCustom"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="productId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_checkout_to_ordered"
             app:destination="@id/orderedFragment"
@@ -205,7 +230,11 @@
     <fragment
         android:id="@+id/manageWorkersFragment"
         android:name="com.kaarigar.ui.admin.ManageWorkersFragment"
-        android:label="Manage Workers" />
+        android:label="Manage Workers">
+        <action
+            android:id="@+id/action_manageWorkers_to_workerRegister"
+            app:destination="@id/workerRegisterFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/manageRequestsFragment"
@@ -222,5 +251,41 @@
         android:id="@+id/workerDashboardFragment"
         android:name="com.kaarigar.ui.worker.WorkerDashboardFragment"
         android:label="Worker Dashboard"
-        tools:layout="@layout/fragment_worker_dashboard" />
+        tools:layout="@layout/fragment_worker_dashboard">
+        <action
+            android:id="@+id/action_workerDashboard_to_requestDetail"
+            app:destination="@id/requestDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminCategories"
+        android:name="com.kaarigar.ui.admin.AdminCategoriesFragment"
+        android:label="Workshop Segments"
+        tools:layout="@layout/fragment_admin_categories" />
+
+    <fragment
+        android:id="@+id/manageProducts"
+        android:name="com.kaarigar.ui.admin.ManageProductsFragment"
+        android:label="Inventory Manager"
+        tools:layout="@layout/fragment_manage_products">
+        <action
+            android:id="@+id/action_manageProducts_to_addProduct"
+            app:destination="@id/addProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestDetailFragment"
+        android:name="com.kaarigar.ui.worker.RequestDetailFragment"
+        android:label="Job Task Details"
+        tools:layout="@layout/fragment_request_detail">
+        <argument
+            android:name="requestId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.kaarigar.ui.gemini.ChatFragment"
+        android:label="Karigar AI Assistant"
+        tools:layout="@layout/fragment_chat" />
+
 </navigation>

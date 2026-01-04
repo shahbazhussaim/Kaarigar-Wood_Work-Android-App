@@ -58,6 +58,27 @@
 
         </LinearLayout>
         
+        <!-- Search Bar -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:hint="Search creations..."
+            app:startIconDrawable="@android:drawable/ic_menu_search"
+            app:endIconMode="clear_text"
+            style="@style/Widget.Karigar.Card.Glass"
+            app:layout_constraintTop_toBottomOf="@id/shopHeader">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="16dp"
+                android:background="@android:color/transparent"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        
         <!-- Premium Filter Chips -->
         <HorizontalScrollView
             android:id="@+id/scrollChips"
@@ -69,7 +90,7 @@
             android:paddingEnd="20dp"
             android:clipToPadding="false"
             android:scrollbars="none"
-            app:layout_constraintTop_toBottomOf="@id/shopHeader">
+            app:layout_constraintTop_toBottomOf="@id/tilSearch">
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupCategories"
                 android:layout_width="wrap_content"
@@ -110,6 +131,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Storage"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipKitchen"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kitchen"
+                    app:chipBackgroundColor="@color/white"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDoors"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Artisan Door"
                     app:chipBackgroundColor="@color/white"/>
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
@@ -249,7 +284,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:text="Update Catalog"
-                style="@style/Widget.Kaarigar.Button"/>
+                style="@style/Widget.Karigar.Button"/>
                 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnClearFilters"

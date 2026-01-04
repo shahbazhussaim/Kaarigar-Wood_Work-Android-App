@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,8 +39,7 @@ class ManageWorkersFragment : Fragment() {
         loadWorkers()
 
         binding.fabAddWorker.setOnClickListener {
-            it.findNavController()
-                .navigate(R.id.action_adminDashboard_to_workerRegister)
+            findNavController().navigate(R.id.action_manageWorkers_to_workerRegister)
         }
     }
 

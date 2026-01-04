@@ -11,10 +11,13 @@
     <color name="glass_white">#B3FFFFFF</color>
     <color name="glass_dark">#80000000</color>
     <color name="glass_teak">#B32D1B10</color>
+    <color name="glass_stroke">#33FFFFFF</color>
 
     <!-- Status Colors -->
     <color name="success_emerald">#2E7D32</color>
+    <color name="green_forest">#2E7D32</color>
     <color name="error_terracotta">#C62828</color>
+    <color name="orange_accent">#FF9800</color>
 
     <!-- UI Mappings -->
     <color name="primary_text">#1A120B</color>

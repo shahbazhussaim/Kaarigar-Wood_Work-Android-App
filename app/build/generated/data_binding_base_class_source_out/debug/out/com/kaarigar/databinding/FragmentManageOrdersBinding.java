@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -43,9 +44,13 @@ public final class FragmentManageOrdersBinding implements ViewBinding {
   @NonNull
   public final LinearLayout topBar;
 
+  @NonNull
+  public final TextView tvEmptyOrders;
+
   private FragmentManageOrdersBinding(@NonNull ConstraintLayout rootView, @NonNull Chip chipAll,
       @NonNull Chip chipCompleted, @NonNull ChipGroup chipGroupStatus, @NonNull Chip chipPending,
-      @NonNull Chip chipProcessing, @NonNull RecyclerView rvOrders, @NonNull LinearLayout topBar) {
+      @NonNull Chip chipProcessing, @NonNull RecyclerView rvOrders, @NonNull LinearLayout topBar,
+      @NonNull TextView tvEmptyOrders) {
     this.rootView = rootView;
     this.chipAll = chipAll;
     this.chipCompleted = chipCompleted;
@@ -54,6 +59,7 @@ public final class FragmentManageOrdersBinding implements ViewBinding {
     this.chipProcessing = chipProcessing;
     this.rvOrders = rvOrders;
     this.topBar = topBar;
+    this.tvEmptyOrders = tvEmptyOrders;
   }
 
   @Override
@@ -125,8 +131,14 @@ public final class FragmentManageOrdersBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvEmptyOrders;
+      TextView tvEmptyOrders = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmptyOrders == null) {
+        break missingId;
+      }
+
       return new FragmentManageOrdersBinding((ConstraintLayout) rootView, chipAll, chipCompleted,
-          chipGroupStatus, chipPending, chipProcessing, rvOrders, topBar);
+          chipGroupStatus, chipPending, chipProcessing, rvOrders, topBar, tvEmptyOrders);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -10,57 +10,64 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class AdminRequestAdapter(
-    private var requests: MutableList<Map<String, Any>>,
+    private var requests: List<Map<String, Any>>,
     private val onActionClick: (String, View) -> Unit
-) : RecyclerView.Adapter<AdminRequestAdapter.RequestViewHolder>() {
+) : RecyclerView.Adapter<AdminRequestAdapter.ViewHolder>() {
 
-    class RequestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvId: TextView = view.findViewById(R.id.tvOrderId) // Reuse item_order IDs
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val tvId: TextView = view.findViewById(R.id.tvOrderId)
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val tvDesc: TextView = view.findViewById(R.id.tvOrderItems)
         val tvStatus: TextView = view.findViewById(R.id.tvStatus)
         val tvTotal: TextView = view.findViewById(R.id.tvTotal)
+        val btnAction: View = view.findViewById(R.id.btnDeleteOrder) // Reusing delete button as action menu
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_order, parent, false)
-        return RequestViewHolder(view)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RequestViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = requests[position]
         val id = item["id"] as? String ?: ""
-        val type = item["type"] as? String ?: "Request"
         val desc = item["description"] as? String ?: ""
         val status = item["status"] as? String ?: "PENDING"
-        val timestamp = item["timestamp"] as? Long ?: 0L
-        val estimate = item["estimatedPrice"] as? String ?: "Pending"
+        val timestamp = item["createdAt"] as? Long ?: item["timestamp"] as? Long ?: 0L
+        val assignedName = item["assignedWorkerName"] as? String
 
-        holder.tvId.text = "$type #${id.takeLast(6).uppercase()}"
+        holder.tvId.text = "Request #...${id.takeLast(4)}"
         
-        val sdf = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
-        holder.tvDate.text = sdf.format(timestamp)
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        holder.tvDate.text = if (timestamp > 0) sdf.format(timestamp) else "N/A"
         
         holder.tvDesc.text = desc
-        holder.tvStatus.text = status
-        holder.tvTotal.text = if(estimate.contains("Pending")) estimate else "₹$estimate"
         
-        when(status) {
-            "PENDING" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_yellow)
-            "COMPLETED" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_green)
-            else -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_gray)
+        if (status == "ACCEPTED" && assignedName != null) {
+            val assignedEmail = item["assignedWorkerEmail"] as? String ?: "N/A"
+            holder.tvStatus.text = "By: $assignedName\n($assignedEmail)"
+            holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_green)
+        } else {
+            holder.tvStatus.text = status
+            when(status) {
+                "PENDING" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_yellow)
+                "COMPLETED" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_green)
+                else -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_gray)
+            }
         }
+
+        holder.tvTotal.text = item["estimatedPrice"] as? String ?: "Quote Pending"
         
-        holder.itemView.setOnClickListener { 
-            onActionClick(id, holder.tvStatus) // Show popup on click
+        // Use the action button (bin icon renamed or reused) to show menu
+        holder.btnAction.setOnClickListener { 
+            onActionClick(id, it)
         }
     }
 
     override fun getItemCount() = requests.size
-    
-    fun updateData(newItems: List<Map<String, Any>>) {
-        requests.clear()
-        requests.addAll(newItems)
+
+    fun updateData(newRequests: List<Map<String, Any>>) {
+        requests = newRequests
         notifyDataSetChanged()
     }
 }

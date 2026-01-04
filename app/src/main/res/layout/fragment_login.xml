@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            style="@style/Widget.Kaarigar.Card.Glass">
+            style="@style/Widget.Karigar.Card.Glass">
             
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,7 +125,7 @@
                     android:layout_height="64dp"
                     android:text="Enter Workshop"
                     android:layout_marginTop="32dp"
-                    style="@style/Widget.Kaarigar.Button"/>
+                    style="@style/Widget.Karigar.Button"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

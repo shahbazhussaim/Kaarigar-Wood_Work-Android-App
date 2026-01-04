@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kaarigar.R
 import com.kaarigar.data.Resource
 import com.kaarigar.databinding.FragmentCustomOrderBinding
 import com.kaarigar.ui.gemini.GeminiViewModel
@@ -123,8 +125,12 @@ class CustomOrderFragment : Fragment() {
             val description = "Size: $w x $h x $d inches. Material: $material. $details"
 
             if (w.isNotEmpty()) {
-                geminiViewModel.predictPrice(category, description)
-                Toast.makeText(context, "AI is estimating price...", Toast.LENGTH_SHORT).show()
+                val bitmap = if (binding.ivPreview.visibility == View.VISIBLE) {
+                    (binding.ivPreview.drawable as? android.graphics.drawable.BitmapDrawable)?.bitmap
+                } else null
+                
+                geminiViewModel.predictPrice(category, description, bitmap)
+                Toast.makeText(context, "AI is analyzing your vision...", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Please enter dimensions first", Toast.LENGTH_SHORT).show()
             }
@@ -206,8 +212,14 @@ class CustomOrderFragment : Fragment() {
         db.collection("orders")
                 .add(order)
                 .addOnSuccessListener {
-                    Toast.makeText(context, "Custom Order Submitted!", Toast.LENGTH_SHORT).show()
-                    parentFragmentManager.popBackStack()
+                    Toast.makeText(context, "Order details saved. Please complete checkout.", Toast.LENGTH_SHORT).show()
+                    
+                    val bundle = Bundle().apply {
+                        putFloat("totalAmount", price?.toFloatOrNull() ?: 0.0f)
+                        putString("description", requirements)
+                        putBoolean("isCustom", true)
+                    }
+                    findNavController().navigate(R.id.action_custom_to_checkout, bundle)
                 }
                 .addOnFailureListener { e ->
                     binding.btnSubmit.isEnabled = true

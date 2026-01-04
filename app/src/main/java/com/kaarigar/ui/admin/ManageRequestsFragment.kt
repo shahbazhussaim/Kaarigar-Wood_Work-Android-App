@@ -41,6 +41,8 @@ class ManageRequestsFragment : Fragment() {
         binding.chipGroupStatus.setOnCheckedStateChangeListener { group, checkedIds ->
             filterRequests()
         }
+        // Ensure 'All' is default
+        binding.chipAll.isChecked = true
     }
 
     private fun setupRecyclerView() {
@@ -96,15 +98,27 @@ class ManageRequestsFragment : Fragment() {
     }
 
     private fun loadRequests() {
-        db.collection("requests").get().addOnSuccessListener { documents ->
+        db.collection("requests").orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING).get()
+            .addOnSuccessListener { documents ->
             allRequests.clear()
             for (doc in documents) {
                 val data = doc.data.toMutableMap()
                 data["id"] = doc.id
                 allRequests.add(data)
             }
+            updateStats()
             filterRequests()
         }
+    }
+
+    private fun updateStats() {
+        val total = allRequests.size
+        val pending = allRequests.count { (it["status"] as? String) == "PENDING" }
+        val accepted = allRequests.count { (it["status"] as? String) == "ACCEPTED" }
+        
+        binding.tvTotalRequests.text = "$total"
+        binding.tvPendingRequests.text = "$pending"
+        binding.tvAcceptedRequests.text = "$accepted"
     }
 
     private fun filterRequests() {
@@ -112,6 +126,7 @@ class ManageRequestsFragment : Fragment() {
         val status =
                 when (selectedChipId) {
                     R.id.chipPending -> "PENDING"
+                    R.id.chipAccepted -> "ACCEPTED"
                     R.id.chipCompleted -> "COMPLETED"
                     else -> "All"
                 }
@@ -119,6 +134,8 @@ class ManageRequestsFragment : Fragment() {
         val filtered =
                 if (status == "All") allRequests else allRequests.filter { it["status"] == status }
         adapter.updateData(filtered)
+        
+        binding.tvEmptyRequests.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

@@ -28,10 +28,16 @@ public final class FragmentAdminDashboardBinding implements ViewBinding {
   public final MaterialCardView btnLogout;
 
   @NonNull
+  public final MaterialButton btnManageInventory;
+
+  @NonNull
   public final MaterialButton btnManageOrders;
 
   @NonNull
   public final MaterialButton btnManageWorkers;
+
+  @NonNull
+  public final MaterialButton btnViewCategories;
 
   @NonNull
   public final MaterialButton btnViewRequests;
@@ -44,14 +50,17 @@ public final class FragmentAdminDashboardBinding implements ViewBinding {
 
   private FragmentAdminDashboardBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnAddProduct, @NonNull MaterialCardView btnLogout,
-      @NonNull MaterialButton btnManageOrders, @NonNull MaterialButton btnManageWorkers,
+      @NonNull MaterialButton btnManageInventory, @NonNull MaterialButton btnManageOrders,
+      @NonNull MaterialButton btnManageWorkers, @NonNull MaterialButton btnViewCategories,
       @NonNull MaterialButton btnViewRequests, @NonNull TextView tvOrderCount,
       @NonNull TextView tvRequestCount) {
     this.rootView = rootView;
     this.btnAddProduct = btnAddProduct;
     this.btnLogout = btnLogout;
+    this.btnManageInventory = btnManageInventory;
     this.btnManageOrders = btnManageOrders;
     this.btnManageWorkers = btnManageWorkers;
+    this.btnViewCategories = btnViewCategories;
     this.btnViewRequests = btnViewRequests;
     this.tvOrderCount = tvOrderCount;
     this.tvRequestCount = tvRequestCount;
@@ -96,6 +105,12 @@ public final class FragmentAdminDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnManageInventory;
+      MaterialButton btnManageInventory = ViewBindings.findChildViewById(rootView, id);
+      if (btnManageInventory == null) {
+        break missingId;
+      }
+
       id = R.id.btnManageOrders;
       MaterialButton btnManageOrders = ViewBindings.findChildViewById(rootView, id);
       if (btnManageOrders == null) {
@@ -105,6 +120,12 @@ public final class FragmentAdminDashboardBinding implements ViewBinding {
       id = R.id.btnManageWorkers;
       MaterialButton btnManageWorkers = ViewBindings.findChildViewById(rootView, id);
       if (btnManageWorkers == null) {
+        break missingId;
+      }
+
+      id = R.id.btnViewCategories;
+      MaterialButton btnViewCategories = ViewBindings.findChildViewById(rootView, id);
+      if (btnViewCategories == null) {
         break missingId;
       }
 
@@ -127,8 +148,8 @@ public final class FragmentAdminDashboardBinding implements ViewBinding {
       }
 
       return new FragmentAdminDashboardBinding((ConstraintLayout) rootView, btnAddProduct,
-          btnLogout, btnManageOrders, btnManageWorkers, btnViewRequests, tvOrderCount,
-          tvRequestCount);
+          btnLogout, btnManageInventory, btnManageOrders, btnManageWorkers, btnViewCategories,
+          btnViewRequests, tvOrderCount, tvRequestCount);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

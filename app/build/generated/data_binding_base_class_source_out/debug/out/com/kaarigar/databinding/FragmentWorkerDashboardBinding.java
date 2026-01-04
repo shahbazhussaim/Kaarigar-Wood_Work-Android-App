@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.kaarigar.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -26,6 +28,18 @@ public final class FragmentWorkerDashboardBinding implements ViewBinding {
   public final ImageButton btnLogout;
 
   @NonNull
+  public final Chip chipAccepted;
+
+  @NonNull
+  public final Chip chipAll;
+
+  @NonNull
+  public final ChipGroup chipGroupFilter;
+
+  @NonNull
+  public final LinearLayout llEmptyState;
+
+  @NonNull
   public final RecyclerView rvWorkerTasks;
 
   @NonNull
@@ -35,10 +49,16 @@ public final class FragmentWorkerDashboardBinding implements ViewBinding {
   public final TextView tvSubtitle;
 
   private FragmentWorkerDashboardBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnLogout, @NonNull RecyclerView rvWorkerTasks,
-      @NonNull LinearLayout topBar, @NonNull TextView tvSubtitle) {
+      @NonNull ImageButton btnLogout, @NonNull Chip chipAccepted, @NonNull Chip chipAll,
+      @NonNull ChipGroup chipGroupFilter, @NonNull LinearLayout llEmptyState,
+      @NonNull RecyclerView rvWorkerTasks, @NonNull LinearLayout topBar,
+      @NonNull TextView tvSubtitle) {
     this.rootView = rootView;
     this.btnLogout = btnLogout;
+    this.chipAccepted = chipAccepted;
+    this.chipAll = chipAll;
+    this.chipGroupFilter = chipGroupFilter;
+    this.llEmptyState = llEmptyState;
     this.rvWorkerTasks = rvWorkerTasks;
     this.topBar = topBar;
     this.tvSubtitle = tvSubtitle;
@@ -77,6 +97,30 @@ public final class FragmentWorkerDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chipAccepted;
+      Chip chipAccepted = ViewBindings.findChildViewById(rootView, id);
+      if (chipAccepted == null) {
+        break missingId;
+      }
+
+      id = R.id.chipAll;
+      Chip chipAll = ViewBindings.findChildViewById(rootView, id);
+      if (chipAll == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGroupFilter;
+      ChipGroup chipGroupFilter = ViewBindings.findChildViewById(rootView, id);
+      if (chipGroupFilter == null) {
+        break missingId;
+      }
+
+      id = R.id.llEmptyState;
+      LinearLayout llEmptyState = ViewBindings.findChildViewById(rootView, id);
+      if (llEmptyState == null) {
+        break missingId;
+      }
+
       id = R.id.rvWorkerTasks;
       RecyclerView rvWorkerTasks = ViewBindings.findChildViewById(rootView, id);
       if (rvWorkerTasks == null) {
@@ -96,7 +140,7 @@ public final class FragmentWorkerDashboardBinding implements ViewBinding {
       }
 
       return new FragmentWorkerDashboardBinding((ConstraintLayout) rootView, btnLogout,
-          rvWorkerTasks, topBar, tvSubtitle);
+          chipAccepted, chipAll, chipGroupFilter, llEmptyState, rvWorkerTasks, topBar, tvSubtitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

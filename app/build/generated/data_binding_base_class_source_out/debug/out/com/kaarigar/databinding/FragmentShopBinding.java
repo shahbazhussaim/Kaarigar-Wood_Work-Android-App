@@ -18,6 +18,8 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.slider.RangeSlider;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.kaarigar.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -46,7 +48,13 @@ public final class FragmentShopBinding implements ViewBinding {
   public final Chip chipBed;
 
   @NonNull
+  public final Chip chipDoors;
+
+  @NonNull
   public final ChipGroup chipGroupCategories;
+
+  @NonNull
+  public final Chip chipKitchen;
 
   @NonNull
   public final Chip chipSofa;
@@ -59,6 +67,9 @@ public final class FragmentShopBinding implements ViewBinding {
 
   @NonNull
   public final DrawerLayout drawerLayout;
+
+  @NonNull
+  public final TextInputEditText etSearch;
 
   @NonNull
   public final NavigationView filterDrawer;
@@ -78,14 +89,19 @@ public final class FragmentShopBinding implements ViewBinding {
   @NonNull
   public final LinearLayout shopHeader;
 
+  @NonNull
+  public final TextInputLayout tilSearch;
+
   private FragmentShopBinding(@NonNull DrawerLayout rootView, @NonNull ImageButton btnAddProduct,
       @NonNull MaterialButton btnApplyFilters, @NonNull MaterialButton btnClearFilters,
       @NonNull ImageButton btnFilter, @NonNull Chip chipAll, @NonNull Chip chipBed,
-      @NonNull ChipGroup chipGroupCategories, @NonNull Chip chipSofa, @NonNull Chip chipStorage,
-      @NonNull Chip chipTable, @NonNull DrawerLayout drawerLayout,
+      @NonNull Chip chipDoors, @NonNull ChipGroup chipGroupCategories, @NonNull Chip chipKitchen,
+      @NonNull Chip chipSofa, @NonNull Chip chipStorage, @NonNull Chip chipTable,
+      @NonNull DrawerLayout drawerLayout, @NonNull TextInputEditText etSearch,
       @NonNull NavigationView filterDrawer, @NonNull LinearLayout llEmpty,
       @NonNull RangeSlider priceSlider, @NonNull RecyclerView rvProductList,
-      @NonNull HorizontalScrollView scrollChips, @NonNull LinearLayout shopHeader) {
+      @NonNull HorizontalScrollView scrollChips, @NonNull LinearLayout shopHeader,
+      @NonNull TextInputLayout tilSearch) {
     this.rootView = rootView;
     this.btnAddProduct = btnAddProduct;
     this.btnApplyFilters = btnApplyFilters;
@@ -93,17 +109,21 @@ public final class FragmentShopBinding implements ViewBinding {
     this.btnFilter = btnFilter;
     this.chipAll = chipAll;
     this.chipBed = chipBed;
+    this.chipDoors = chipDoors;
     this.chipGroupCategories = chipGroupCategories;
+    this.chipKitchen = chipKitchen;
     this.chipSofa = chipSofa;
     this.chipStorage = chipStorage;
     this.chipTable = chipTable;
     this.drawerLayout = drawerLayout;
+    this.etSearch = etSearch;
     this.filterDrawer = filterDrawer;
     this.llEmpty = llEmpty;
     this.priceSlider = priceSlider;
     this.rvProductList = rvProductList;
     this.scrollChips = scrollChips;
     this.shopHeader = shopHeader;
+    this.tilSearch = tilSearch;
   }
 
   @Override
@@ -169,9 +189,21 @@ public final class FragmentShopBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chipDoors;
+      Chip chipDoors = ViewBindings.findChildViewById(rootView, id);
+      if (chipDoors == null) {
+        break missingId;
+      }
+
       id = R.id.chipGroupCategories;
       ChipGroup chipGroupCategories = ViewBindings.findChildViewById(rootView, id);
       if (chipGroupCategories == null) {
+        break missingId;
+      }
+
+      id = R.id.chipKitchen;
+      Chip chipKitchen = ViewBindings.findChildViewById(rootView, id);
+      if (chipKitchen == null) {
         break missingId;
       }
 
@@ -194,6 +226,12 @@ public final class FragmentShopBinding implements ViewBinding {
       }
 
       DrawerLayout drawerLayout = (DrawerLayout) rootView;
+
+      id = R.id.etSearch;
+      TextInputEditText etSearch = ViewBindings.findChildViewById(rootView, id);
+      if (etSearch == null) {
+        break missingId;
+      }
 
       id = R.id.filterDrawer;
       NavigationView filterDrawer = ViewBindings.findChildViewById(rootView, id);
@@ -231,10 +269,16 @@ public final class FragmentShopBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tilSearch;
+      TextInputLayout tilSearch = ViewBindings.findChildViewById(rootView, id);
+      if (tilSearch == null) {
+        break missingId;
+      }
+
       return new FragmentShopBinding((DrawerLayout) rootView, btnAddProduct, btnApplyFilters,
-          btnClearFilters, btnFilter, chipAll, chipBed, chipGroupCategories, chipSofa, chipStorage,
-          chipTable, drawerLayout, filterDrawer, llEmpty, priceSlider, rvProductList, scrollChips,
-          shopHeader);
+          btnClearFilters, btnFilter, chipAll, chipBed, chipDoors, chipGroupCategories, chipKitchen,
+          chipSofa, chipStorage, chipTable, drawerLayout, etSearch, filterDrawer, llEmpty,
+          priceSlider, rvProductList, scrollChips, shopHeader, tilSearch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

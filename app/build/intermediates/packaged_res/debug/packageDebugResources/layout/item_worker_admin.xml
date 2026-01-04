@@ -38,7 +38,6 @@
         android:layout_height="48dp"
         android:src="@drawable/ic_launcher_foreground"
         android:tint="#D32F2F"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onDelete"/>
+        android:background="?attr/selectableItemBackgroundBorderless"/>
 
 </LinearLayout>

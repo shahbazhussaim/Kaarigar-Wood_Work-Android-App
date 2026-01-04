@@ -44,10 +44,22 @@ class PriceResultFragment : Fragment() {
                 androidx.lifecycle.ViewModelProvider(this, factory)[GeminiViewModel::class.java]
 
         description = arguments?.getString("description") ?: "General maintenance"
+        val imageUriString = arguments?.getString("imageUri")
         binding.tvReason.text = "Analyzing: $description..."
 
-        // Trigger AI Prediction
-        geminiViewModel.predictPrice("Maintenance", description)
+        // Trigger AI Prediction with Image if available
+        if (imageUriString != null) {
+            val uri = android.net.Uri.parse(imageUriString)
+            try {
+                val inputStream = requireContext().contentResolver.openInputStream(uri)
+                val bitmap = android.graphics.BitmapFactory.decodeStream(inputStream)
+                geminiViewModel.predictPrice("Maintenance", description, bitmap)
+            } catch (e: Exception) {
+                geminiViewModel.predictPrice("Maintenance", description)
+            }
+        } else {
+            geminiViewModel.predictPrice("Maintenance", description)
+        }
 
         geminiViewModel.pricePrediction.observe(viewLifecycleOwner) { resource ->
             when (resource.status) {
@@ -92,19 +104,21 @@ class PriceResultFragment : Fragment() {
         }
 
         binding.btnConfirm.setOnClickListener {
-            submitRequest(description, binding.tvPriceRange.text.toString())
+            val phone = arguments?.getString("phone") ?: ""
+            submitRequest(description, binding.tvPriceRange.text.toString(), phone)
         }
 
         binding.btnCancel.setOnClickListener { findNavController().popBackStack() }
     }
 
-    private fun submitRequest(description: String, price: String) {
+    private fun submitRequest(description: String, price: String, phone: String) {
         val userId = auth.currentUser?.uid ?: "guest_user"
         val request =
                 hashMapOf(
                         "userId" to userId,
                         "type" to "MAINTENANCE",
                         "description" to description,
+                        "customerPhone" to phone,
                         "estimatedPrice" to price,
                         "status" to "PENDING",
                         "timestamp" to System.currentTimeMillis()

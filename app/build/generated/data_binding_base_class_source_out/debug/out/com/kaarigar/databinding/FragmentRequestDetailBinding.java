@@ -4,6 +4,7 @@ package com.kaarigar.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +22,22 @@ public final class FragmentRequestDetailBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final MaterialButton btnAcceptJob;
+
+  @NonNull
+  public final MaterialButton btnCallCustomer;
+
+  @NonNull
   public final MaterialButton btnUpdateStatus;
 
   @NonNull
+  public final ImageView ivProjectImage;
+
+  @NonNull
   public final TextView tvCurrentStatus;
+
+  @NonNull
+  public final TextView tvCustomerPhone;
 
   @NonNull
   public final TextView tvDetailTitle;
@@ -39,12 +52,18 @@ public final class FragmentRequestDetailBinding implements ViewBinding {
   public final TextView tvRequestType;
 
   private FragmentRequestDetailBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnUpdateStatus, @NonNull TextView tvCurrentStatus,
+      @NonNull MaterialButton btnAcceptJob, @NonNull MaterialButton btnCallCustomer,
+      @NonNull MaterialButton btnUpdateStatus, @NonNull ImageView ivProjectImage,
+      @NonNull TextView tvCurrentStatus, @NonNull TextView tvCustomerPhone,
       @NonNull TextView tvDetailTitle, @NonNull TextView tvPrice,
       @NonNull TextView tvRequestDescription, @NonNull TextView tvRequestType) {
     this.rootView = rootView;
+    this.btnAcceptJob = btnAcceptJob;
+    this.btnCallCustomer = btnCallCustomer;
     this.btnUpdateStatus = btnUpdateStatus;
+    this.ivProjectImage = ivProjectImage;
     this.tvCurrentStatus = tvCurrentStatus;
+    this.tvCustomerPhone = tvCustomerPhone;
     this.tvDetailTitle = tvDetailTitle;
     this.tvPrice = tvPrice;
     this.tvRequestDescription = tvRequestDescription;
@@ -78,15 +97,39 @@ public final class FragmentRequestDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnAcceptJob;
+      MaterialButton btnAcceptJob = ViewBindings.findChildViewById(rootView, id);
+      if (btnAcceptJob == null) {
+        break missingId;
+      }
+
+      id = R.id.btnCallCustomer;
+      MaterialButton btnCallCustomer = ViewBindings.findChildViewById(rootView, id);
+      if (btnCallCustomer == null) {
+        break missingId;
+      }
+
       id = R.id.btnUpdateStatus;
       MaterialButton btnUpdateStatus = ViewBindings.findChildViewById(rootView, id);
       if (btnUpdateStatus == null) {
         break missingId;
       }
 
+      id = R.id.ivProjectImage;
+      ImageView ivProjectImage = ViewBindings.findChildViewById(rootView, id);
+      if (ivProjectImage == null) {
+        break missingId;
+      }
+
       id = R.id.tvCurrentStatus;
       TextView tvCurrentStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvCurrentStatus == null) {
+        break missingId;
+      }
+
+      id = R.id.tvCustomerPhone;
+      TextView tvCustomerPhone = ViewBindings.findChildViewById(rootView, id);
+      if (tvCustomerPhone == null) {
         break missingId;
       }
 
@@ -114,8 +157,9 @@ public final class FragmentRequestDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentRequestDetailBinding((ConstraintLayout) rootView, btnUpdateStatus,
-          tvCurrentStatus, tvDetailTitle, tvPrice, tvRequestDescription, tvRequestType);
+      return new FragmentRequestDetailBinding((ConstraintLayout) rootView, btnAcceptJob,
+          btnCallCustomer, btnUpdateStatus, ivProjectImage, tvCurrentStatus, tvCustomerPhone,
+          tvDetailTitle, tvPrice, tvRequestDescription, tvRequestType);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

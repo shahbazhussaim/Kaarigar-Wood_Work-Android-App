@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.kaarigar.KaarigarApp
+import com.kaarigar.KarigarApp
 import com.kaarigar.R
 import com.kaarigar.data.Resource
 import com.kaarigar.data.repository.AuthRepository
@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val app = requireActivity().application as KaarigarApp
+        val app = requireActivity().application as KarigarApp
         val db = app.database
         val authRepo = AuthRepository(
             FirebaseAuth.getInstance(),

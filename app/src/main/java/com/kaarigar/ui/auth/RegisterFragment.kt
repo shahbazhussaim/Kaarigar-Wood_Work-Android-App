@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.kaarigar.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.kaarigar.KaarigarApp
+import com.kaarigar.KarigarApp
 import com.kaarigar.data.Resource
 import com.kaarigar.data.repository.AuthRepository
 import com.kaarigar.databinding.FragmentRegisterBinding
@@ -36,7 +36,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val app = requireActivity().application as KaarigarApp
+        val app = requireActivity().application as KarigarApp
         val db = app.database
         val authRepo = AuthRepository(
             FirebaseAuth.getInstance(),

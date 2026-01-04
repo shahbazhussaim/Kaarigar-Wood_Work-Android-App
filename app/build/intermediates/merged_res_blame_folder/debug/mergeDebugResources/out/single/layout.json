@@ -1,5 +1,21 @@
 [
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_chat_user.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_chat_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_customer.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_customer.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_workers.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_workers.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_add_product.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_add_product.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_requests.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_requests.xml"
     },
@@ -8,12 +24,12 @@
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_checkout.xml"
     },
     {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_login.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_login.xml"
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_admin.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_admin.xml"
     },
     {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_custom_order.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_custom_order.xml"
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_order.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_order.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_orders.xml",
@@ -28,16 +44,44 @@
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\dialog_write_review.xml"
     },
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_requests.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_requests.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_request.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_shop.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_shop.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_auth.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_auth.xml"
     },
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_inventory.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_inventory.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_products.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_products.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_request_detail.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_request_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_admin_categories.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_admin_categories.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_custom_order.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_custom_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_worker_register.xml",
@@ -56,104 +100,24 @@
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_profile.xml"
     },
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_cart_item.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_cart_item.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_maintenance_request.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_maintenance_request.xml"
     },
     {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_cart_item.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_cart_item.xml"
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_customer_home.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_customer_home.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_chat.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_chat.xml"
     },
     {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_admin_dashboard.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_admin_dashboard.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_worker.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_worker.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_ordered.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_ordered.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_login.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_login.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_profile.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_profile.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_chat_user.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_chat_user.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_customer.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_customer.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_workers.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_workers.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_add_product.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_add_product.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_admin.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_admin.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_manage_requests.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_manage_requests.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_manage_orders.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_manage_orders.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_maintenance_request.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_maintenance_request.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_order.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_order.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_manage_requests.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_manage_requests.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_shop.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_shop.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_add_product.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_add_product.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_inventory.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_inventory.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_register.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_register.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_custom_order.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_custom_order.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_customer_home.xml",
-        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_customer_home.xml"
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_manage_product.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_manage_product.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_admin_dashboard.xml",
@@ -168,6 +132,18 @@
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_worker_dashboard.xml"
     },
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\activity_worker.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\activity_worker.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_ordered.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_ordered.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\dialog_add_worker.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\dialog_add_worker.xml"
     },
@@ -176,16 +152,12 @@
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_cart.xml"
     },
     {
+        "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_category_admin.xml",
+        "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\item_category_admin.xml"
+    },
+    {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\fragment_register.xml",
         "source": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-main-66:\\layout\\fragment_register.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_worker_dashboard.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_worker_dashboard.xml"
-    },
-    {
-        "merged": "com.kaarigar.app-mergeDebugResources-63:/layout/fragment_cart.xml",
-        "source": "com.kaarigar.app-main-66:/layout/fragment_cart.xml"
     },
     {
         "merged": "C:\\Users\\SYS\\.gradle\\daemon\\8.13\\com.kaarigar.app-mergeDebugResources-63:\\layout\\item_product.xml",

@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        style="@style/Widget.Kaarigar.Card.Glass"
+        style="@style/Widget.Karigar.Card.Glass"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout

@@ -43,10 +43,16 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
   public final TextInputEditText etIssue;
 
   @NonNull
+  public final TextInputEditText etPhone;
+
+  @NonNull
   public final ImageView ivPreview;
 
   @NonNull
   public final TextInputLayout tilIssue;
+
+  @NonNull
+  public final TextInputLayout tilPhone;
 
   @NonNull
   public final TextView tvSubtitle;
@@ -58,8 +64,9 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
       @NonNull MaterialButton btnPredictPrice, @NonNull MaterialButton btnSubmit,
       @NonNull MaterialButton btnUploadImage, @NonNull MaterialCardView cardForm,
       @NonNull MaterialCardView cardPreview, @NonNull TextInputEditText etIssue,
-      @NonNull ImageView ivPreview, @NonNull TextInputLayout tilIssue, @NonNull TextView tvSubtitle,
-      @NonNull TextView tvTitle) {
+      @NonNull TextInputEditText etPhone, @NonNull ImageView ivPreview,
+      @NonNull TextInputLayout tilIssue, @NonNull TextInputLayout tilPhone,
+      @NonNull TextView tvSubtitle, @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.btnPredictPrice = btnPredictPrice;
     this.btnSubmit = btnSubmit;
@@ -67,8 +74,10 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
     this.cardForm = cardForm;
     this.cardPreview = cardPreview;
     this.etIssue = etIssue;
+    this.etPhone = etPhone;
     this.ivPreview = ivPreview;
     this.tilIssue = tilIssue;
+    this.tilPhone = tilPhone;
     this.tvSubtitle = tvSubtitle;
     this.tvTitle = tvTitle;
   }
@@ -136,6 +145,12 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etPhone;
+      TextInputEditText etPhone = ViewBindings.findChildViewById(rootView, id);
+      if (etPhone == null) {
+        break missingId;
+      }
+
       id = R.id.ivPreview;
       ImageView ivPreview = ViewBindings.findChildViewById(rootView, id);
       if (ivPreview == null) {
@@ -145,6 +160,12 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
       id = R.id.tilIssue;
       TextInputLayout tilIssue = ViewBindings.findChildViewById(rootView, id);
       if (tilIssue == null) {
+        break missingId;
+      }
+
+      id = R.id.tilPhone;
+      TextInputLayout tilPhone = ViewBindings.findChildViewById(rootView, id);
+      if (tilPhone == null) {
         break missingId;
       }
 
@@ -161,8 +182,8 @@ public final class FragmentMaintenanceRequestBinding implements ViewBinding {
       }
 
       return new FragmentMaintenanceRequestBinding((ConstraintLayout) rootView, btnPredictPrice,
-          btnSubmit, btnUploadImage, cardForm, cardPreview, etIssue, ivPreview, tilIssue,
-          tvSubtitle, tvTitle);
+          btnSubmit, btnUploadImage, cardForm, cardPreview, etIssue, etPhone, ivPreview, tilIssue,
+          tilPhone, tvSubtitle, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

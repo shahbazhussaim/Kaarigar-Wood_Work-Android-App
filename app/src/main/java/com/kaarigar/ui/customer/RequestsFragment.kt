@@ -42,21 +42,11 @@ class RequestsFragment : Fragment() {
     }
 
     private fun loadRequests() {
-        val userId = auth.currentUser?.uid ?: "guest_user_${System.currentTimeMillis()}" // Note: Random ID won't persistent nicely for fetch. 
-        // Logic fix: The WRITE used a random ID. The READ needs the SAME ID. 
-        // Since we can't guess the random ID, we should standardize the Guest ID for the session or use "guest_user" generic.
-        // Let's change this to "guest_user" standard for now to ensure visibility during single session testing if we update writes too.
-        // BUT, I updated Writes to use random ID for Custom Order. I should fix Writes to be consistent or use SharedPrefs to store the session GuestID.
-        // For simplicity: hardcode "guest_user" for now in both Read/Write or accept that random IDs are write-only.
-        // User complained "not adding it to order page". So they expect to SEE it.
-        // I must change the WRITE logic to be consistent first. 
-        // Let's use "guest_user" for all fallbacks for consistency in this testing phase.
-        
-        val effectiveUserId = auth.currentUser?.uid ?: "guest_user"
+        val userId = auth.currentUser?.uid ?: "guest_user"
         
         db.collection("requests")
             .whereEqualTo("userId", userId)
-            .orderBy("timestamp", Query.Direction.DESCENDING)
+            // .orderBy("timestamp", Query.Direction.DESCENDING) // This might need an index, removed for safety
             .get()
             .addOnSuccessListener { documents ->
                 val requests = documents.map { 

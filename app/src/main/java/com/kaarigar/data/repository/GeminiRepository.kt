@@ -4,6 +4,8 @@ import com.kaarigar.BuildConfig
 import com.kaarigar.data.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import com.google.ai.client.generativeai.GenerativeModel
+import com.google.ai.client.generativeai.type.content
 
 class GeminiRepository {
 
@@ -14,7 +16,7 @@ class GeminiRepository {
             // Only use config key if it looks like a valid Google API Key (Starts with AIza)
             // Otherwise fallback to the hardcoded one provided by user
             return if (configKey != "null" && configKey.startsWith("AIza")) configKey 
-                   else "AIzaSyDbSn2v1fwfxy0apzON4uF8PPb6NVRmuzI"
+                   else "AIzaSyCYn56_T_h87Zn06dVw2Jto92-KuNSgano"
         }
 
     private val generativeModel by lazy {
@@ -40,34 +42,44 @@ class GeminiRepository {
         }
     }
 
-    fun predictPrice(category: String, description: String): Flow<Resource<String>> = flow {
+    fun predictPrice(category: String, description: String, image: android.graphics.Bitmap? = null): Flow<Resource<String>> = flow {
         emit(Resource.loading())
-        val prompt =
-                "As a furniture expert, estimate a fair market price in Indian Rupees (₹) for the following:\n" +
-                        "Category: $category\n" +
-                        "Description: $description\n\n" +
-                        "Return ONLY a JSON object exactly like this: {\"price\": \"1500\", \"reason\": \"Your reason here\"}. No other text, no markdown."
+        
+        val promptText = if (image != null) {
+            "As a furniture expert, analyze this image and estimate a fair market price in Indian Rupees (₹) for a $category.\n" +
+            "Details: $description\n\n" +
+            "Return ONLY a JSON object exactly like this: {\"price\": \"1500\", \"reason\": \"Your reason here based on image analysis\"}. No other text."
+        } else {
+            "As a furniture expert, estimate a fair market price in Indian Rupees (₹) for a $category.\n" +
+            "Description: $description\n\n" +
+            "Return ONLY a JSON object exactly like this: {\"price\": \"1500\", \"reason\": \"Your reason here\"}. No other text."
+        }
 
         try {
-            val response = generativeModel.generateContent(prompt)
+            val content = com.google.ai.client.generativeai.type.content {
+                if (image != null) {
+                    image(image)
+                }
+                text(promptText)
+            }
+
+            val response = generativeModel.generateContent(content)
             val text = response.text
 
             if (text != null) {
-                // Robust extraction: find the first { and last }
                 val startIndex = text.indexOf("{")
                 val endIndex = text.lastIndexOf("}")
                 if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
                     val cleanText = text.substring(startIndex, endIndex + 1)
                     emit(Resource.success(cleanText))
                 } else {
-                    emit(Resource.success(text.trim())) // Fallback to raw if no JSON braces found
+                    emit(Resource.success(text.trim()))
                 }
             } else {
                 emit(Resource.error("Price prediction failed: No content"))
             }
         } catch (e: Exception) {
              val msg = e.localizedMessage ?: "Unknown Error"
-             // Help user debug API key issues
              if (msg.contains("API key")) {
                  emit(Resource.error("Invalid API Key. Please check local.properties"))
              } else {

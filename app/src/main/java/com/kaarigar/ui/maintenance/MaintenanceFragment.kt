@@ -20,7 +20,9 @@ class MaintenanceFragment : Fragment() {
         get() = _binding!!
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+    private val storage = com.google.firebase.storage.FirebaseStorage.getInstance()
     private lateinit var geminiViewModel: GeminiViewModel
+    private var selectedImageUri: android.net.Uri? = null
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -43,10 +45,11 @@ class MaintenanceFragment : Fragment() {
 
         binding.btnSubmit.setOnClickListener {
             val description = binding.etIssue.text.toString().trim()
-            if (description.isNotEmpty()) {
-                submitRequest(description)
+            val phone = binding.etPhone.text.toString().trim()
+            if (description.isNotEmpty() && phone.isNotEmpty()) {
+                submitRequest(description, phone)
             } else {
-                Toast.makeText(context, "Please describe the issue", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Description and Phone required", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -55,6 +58,7 @@ class MaintenanceFragment : Fragment() {
                         androidx.activity.result.contract.ActivityResultContracts.GetContent()
                 ) { uri ->
                     if (uri != null) {
+                        selectedImageUri = uri
                         binding.ivPreview.setImageURI(uri)
                         binding.ivPreview.visibility = View.VISIBLE
                     }
@@ -64,9 +68,13 @@ class MaintenanceFragment : Fragment() {
 
         binding.btnPredictPrice.setOnClickListener {
             val description = binding.etIssue.text.toString().trim()
+            val phone = binding.etPhone.text.toString().trim()
             if (description.isNotEmpty()) {
-                // Mock or Real Gemini Call - Navigate to Result
-                val bundle = Bundle().apply { putString("description", description) }
+                val bundle = Bundle().apply {
+                    putString("description", description)
+                    putString("phone", phone)
+                    selectedImageUri?.let { putString("imageUri", it.toString()) }
+                }
                 findNavController().navigate(R.id.action_maintenance_to_priceResult, bundle)
             } else {
                 Toast.makeText(context, "Please describe the issue first", Toast.LENGTH_SHORT)
@@ -75,22 +83,59 @@ class MaintenanceFragment : Fragment() {
         }
     }
 
-    private fun submitRequest(description: String) {
+    private fun submitRequest(description: String, phone: String) {
+        binding.btnSubmit.isEnabled = false
+        binding.btnSubmit.text = "Submitting..."
+        
+        if (selectedImageUri != null) {
+            uploadImageAndSave(description, phone)
+        } else {
+            saveToFirestore(description, phone, "")
+        }
+    }
+
+    private fun uploadImageAndSave(description: String, phone: String) {
+        val ref = storage.reference.child("maintenance/${System.currentTimeMillis()}.jpg")
+        ref.putFile(selectedImageUri!!)
+            .continueWithTask { task ->
+                if (!task.isSuccessful) task.exception?.let { throw it }
+                ref.downloadUrl
+            }
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    saveToFirestore(description, phone, task.result.toString())
+                } else {
+                    saveToFirestore(description, phone, "") // Fallback
+                }
+            }
+    }
+
+    private fun saveToFirestore(description: String, phone: String, imageUrl: String) {
         val userId = auth.currentUser?.uid ?: "guest_user"
-        val request =
-                hashMapOf(
-                        "userId" to userId,
-                        "type" to "MAINTENANCE",
-                        "description" to description,
-                        "status" to "PENDING",
-                        "timestamp" to System.currentTimeMillis()
-                )
+        val request = hashMapOf(
+            "userId" to userId,
+            "type" to "MAINTENANCE",
+            "description" to description,
+            "customerPhone" to phone,
+            "imageUrl" to imageUrl,
+            "status" to "PENDING",
+            "timestamp" to System.currentTimeMillis()
+        )
 
-        db.collection("requests").add(request).addOnFailureListener { e -> e.printStackTrace() }
-
-        // Optimistic UI
-        Toast.makeText(context, "Request Submitted (Syncing...)", Toast.LENGTH_SHORT).show()
-        findNavController().popBackStack()
+        db.collection("requests").add(request)
+            .addOnSuccessListener {
+                if (_binding != null) {
+                    Toast.makeText(context, "Request Submitted Successfully!", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                }
+            }
+            .addOnFailureListener { e ->
+                if (_binding != null) {
+                    binding.btnSubmit.isEnabled = true
+                    binding.btnSubmit.text = "Request Expert Care"
+                    Toast.makeText(context, "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     override fun onDestroyView() {

@@ -18,7 +18,10 @@ class CheckoutFragment : Fragment() {
     private val binding get() = _binding!!
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
-    private var totalAmount = 0.0
+    private var totalAmount = 0.0f
+    private var orderDescription: String? = null
+    private var isCustomOrder = false
+    private var directProductId: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +34,24 @@ class CheckoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        totalAmount = arguments?.getDouble("totalAmount") ?: 0.0
+        arguments?.let {
+            totalAmount = it.getFloat("totalAmount", 0.0f)
+            orderDescription = it.getString("description")
+            isCustomOrder = it.getBoolean("isCustom", false)
+            directProductId = it.getString("productId")
+        }
         
+        binding.tvTotalPrice.text = String.format("Total: ₹%.2f", totalAmount)
+        if (!orderDescription.isNullOrEmpty()) {
+             binding.tvOrderSummary.text = orderDescription
+             binding.tvOrderSummary.visibility = View.VISIBLE
+        }
+        
+        binding.etDate.setOnClickListener {
+            showDatePicker()
+        }
+        binding.etDate.isFocusable = false // Prevent keyboard
+
         binding.btnPlaceOrder.setOnClickListener {
             val address = binding.etAddress.text.toString()
             val phone = binding.etPhone.text.toString()
@@ -42,6 +61,21 @@ class CheckoutFragment : Fragment() {
                 placeOrder(address, phone, date)
             }
         }
+    }
+
+    private fun showDatePicker() {
+        val calendar = java.util.Calendar.getInstance()
+        val year = calendar.get(java.util.Calendar.YEAR)
+        val month = calendar.get(java.util.Calendar.MONTH)
+        val day = calendar.get(java.util.Calendar.DAY_OF_MONTH)
+
+        val dpd = android.app.DatePickerDialog(requireContext(), { _, y, m, d ->
+            val formattedDate = String.format("%02d/%02d/%04d", d, m + 1, y)
+            binding.etDate.setText(formattedDate)
+        }, year, month, day)
+        
+        dpd.datePicker.minDate = System.currentTimeMillis() // Only future dates
+        dpd.show()
     }
 
     private fun validate(address: String, phone: String, date: String): Boolean {
@@ -114,17 +148,29 @@ class CheckoutFragment : Fragment() {
     }
 
     private fun clearCart(userId: String, documents: com.google.firebase.firestore.QuerySnapshot) {
+        if (isCustomOrder || directProductId != null) {
+            // Direct order - skip cart clearing
+            Toast.makeText(context, "Order Placed Successfully!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_checkout_to_ordered)
+            return
+        }
+
         val batch = db.batch()
         for (doc in documents) {
             batch.delete(doc.reference)
         }
         batch.commit().addOnSuccessListener {
             Toast.makeText(context, "Order Placed Successfully!", Toast.LENGTH_LONG).show()
-            // Navigate to Home or Orders - ONE navigation call
-            findNavController().navigate(R.id.action_checkout_to_ordered)
+            // Navigate back to the originating flow
+            if (isCustomOrder) {
+                findNavController().popBackStack(R.id.customOrderFragment, false)
+            } else if (directProductId != null) {
+                findNavController().popBackStack(R.id.shopFragment, false)
+            } else {
+                findNavController().navigate(R.id.action_checkout_to_ordered)
+            }
         }
         .addOnFailureListener {
-             // Even if clear cart fails, order was placed.
              Toast.makeText(context, "Order Placed (Cart clear failed)", Toast.LENGTH_LONG).show()
              findNavController().navigate(R.id.action_checkout_to_ordered)
         }

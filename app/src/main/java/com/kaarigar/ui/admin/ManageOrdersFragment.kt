@@ -97,6 +97,8 @@ class ManageOrdersFragment : Fragment() {
         val filtered =
                 if (status == "All") allOrders else allOrders.filter { it["status"] == status }
         adapter.updateData(filtered)
+        
+        binding.tvEmptyOrders.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

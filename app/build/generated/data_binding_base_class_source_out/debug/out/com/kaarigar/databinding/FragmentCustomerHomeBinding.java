@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -17,6 +17,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.kaarigar.R;
 import java.lang.NullPointerException;
@@ -38,6 +39,9 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
 
   @NonNull
   public final MaterialButton btnGetQuote;
+
+  @NonNull
+  public final ImageButton btnLogout;
 
   @NonNull
   public final MaterialButton btnStory;
@@ -64,6 +68,9 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
   public final TextInputEditText etSearch;
 
   @NonNull
+  public final ExtendedFloatingActionButton fabAIChat;
+
+  @NonNull
   public final FrameLayout flFeedback;
 
   @NonNull
@@ -82,16 +89,13 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
   public final HorizontalScrollView hsvFeatured;
 
   @NonNull
-  public final ImageView ivCart;
+  public final ImageButton ivCart;
 
   @NonNull
-  public final ImageView ivOrders;
+  public final ImageButton ivOrders;
 
   @NonNull
-  public final ImageView ivProfile;
-
-  @NonNull
-  public final ImageView ivRequests;
+  public final ImageButton ivRequests;
 
   @NonNull
   public final TextView tvFeaturedTitle;
@@ -105,21 +109,23 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
   private FragmentCustomerHomeBinding(@NonNull NestedScrollView rootView,
       @NonNull MaterialCardView artisanCard, @NonNull MaterialButton btnBrowseProduct,
       @NonNull MaterialButton btnExploreHero, @NonNull MaterialButton btnGetQuote,
-      @NonNull MaterialButton btnStory, @NonNull MaterialCardView cardCustomService,
-      @NonNull MaterialCardView cardDoors, @NonNull MaterialCardView cardFeatured1,
-      @NonNull MaterialCardView cardFurniture, @NonNull MaterialCardView cardKitchen,
-      @NonNull MaterialCardView cardMaintenanceService, @NonNull TextInputEditText etSearch,
+      @NonNull ImageButton btnLogout, @NonNull MaterialButton btnStory,
+      @NonNull MaterialCardView cardCustomService, @NonNull MaterialCardView cardDoors,
+      @NonNull MaterialCardView cardFeatured1, @NonNull MaterialCardView cardFurniture,
+      @NonNull MaterialCardView cardKitchen, @NonNull MaterialCardView cardMaintenanceService,
+      @NonNull TextInputEditText etSearch, @NonNull ExtendedFloatingActionButton fabAIChat,
       @NonNull FrameLayout flFeedback, @NonNull GridLayout glServices,
       @NonNull LinearLayout headerLayout, @NonNull MaterialCardView heroCard,
       @NonNull HorizontalScrollView hsvCategories, @NonNull HorizontalScrollView hsvFeatured,
-      @NonNull ImageView ivCart, @NonNull ImageView ivOrders, @NonNull ImageView ivProfile,
-      @NonNull ImageView ivRequests, @NonNull TextView tvFeaturedTitle,
-      @NonNull TextView tvLogoName, @NonNull TextView tvServicesTitle) {
+      @NonNull ImageButton ivCart, @NonNull ImageButton ivOrders, @NonNull ImageButton ivRequests,
+      @NonNull TextView tvFeaturedTitle, @NonNull TextView tvLogoName,
+      @NonNull TextView tvServicesTitle) {
     this.rootView = rootView;
     this.artisanCard = artisanCard;
     this.btnBrowseProduct = btnBrowseProduct;
     this.btnExploreHero = btnExploreHero;
     this.btnGetQuote = btnGetQuote;
+    this.btnLogout = btnLogout;
     this.btnStory = btnStory;
     this.cardCustomService = cardCustomService;
     this.cardDoors = cardDoors;
@@ -128,6 +134,7 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
     this.cardKitchen = cardKitchen;
     this.cardMaintenanceService = cardMaintenanceService;
     this.etSearch = etSearch;
+    this.fabAIChat = fabAIChat;
     this.flFeedback = flFeedback;
     this.glServices = glServices;
     this.headerLayout = headerLayout;
@@ -136,7 +143,6 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
     this.hsvFeatured = hsvFeatured;
     this.ivCart = ivCart;
     this.ivOrders = ivOrders;
-    this.ivProfile = ivProfile;
     this.ivRequests = ivRequests;
     this.tvFeaturedTitle = tvFeaturedTitle;
     this.tvLogoName = tvLogoName;
@@ -194,6 +200,12 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnLogout;
+      ImageButton btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
+        break missingId;
+      }
+
       id = R.id.btnStory;
       MaterialButton btnStory = ViewBindings.findChildViewById(rootView, id);
       if (btnStory == null) {
@@ -242,6 +254,12 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabAIChat;
+      ExtendedFloatingActionButton fabAIChat = ViewBindings.findChildViewById(rootView, id);
+      if (fabAIChat == null) {
+        break missingId;
+      }
+
       id = R.id.flFeedback;
       FrameLayout flFeedback = ViewBindings.findChildViewById(rootView, id);
       if (flFeedback == null) {
@@ -279,25 +297,19 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
       }
 
       id = R.id.ivCart;
-      ImageView ivCart = ViewBindings.findChildViewById(rootView, id);
+      ImageButton ivCart = ViewBindings.findChildViewById(rootView, id);
       if (ivCart == null) {
         break missingId;
       }
 
       id = R.id.ivOrders;
-      ImageView ivOrders = ViewBindings.findChildViewById(rootView, id);
+      ImageButton ivOrders = ViewBindings.findChildViewById(rootView, id);
       if (ivOrders == null) {
         break missingId;
       }
 
-      id = R.id.ivProfile;
-      ImageView ivProfile = ViewBindings.findChildViewById(rootView, id);
-      if (ivProfile == null) {
-        break missingId;
-      }
-
       id = R.id.ivRequests;
-      ImageView ivRequests = ViewBindings.findChildViewById(rootView, id);
+      ImageButton ivRequests = ViewBindings.findChildViewById(rootView, id);
       if (ivRequests == null) {
         break missingId;
       }
@@ -321,10 +333,10 @@ public final class FragmentCustomerHomeBinding implements ViewBinding {
       }
 
       return new FragmentCustomerHomeBinding((NestedScrollView) rootView, artisanCard,
-          btnBrowseProduct, btnExploreHero, btnGetQuote, btnStory, cardCustomService, cardDoors,
-          cardFeatured1, cardFurniture, cardKitchen, cardMaintenanceService, etSearch, flFeedback,
-          glServices, headerLayout, heroCard, hsvCategories, hsvFeatured, ivCart, ivOrders,
-          ivProfile, ivRequests, tvFeaturedTitle, tvLogoName, tvServicesTitle);
+          btnBrowseProduct, btnExploreHero, btnGetQuote, btnLogout, btnStory, cardCustomService,
+          cardDoors, cardFeatured1, cardFurniture, cardKitchen, cardMaintenanceService, etSearch,
+          fabAIChat, flFeedback, glServices, headerLayout, heroCard, hsvCategories, hsvFeatured,
+          ivCart, ivOrders, ivRequests, tvFeaturedTitle, tvLogoName, tvServicesTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -34,7 +34,7 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
-        android:name="com.kaarigar.KaarigarApp"
+        android:name="com.kaarigar.KarigarApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -46,7 +46,7 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Kaarigar" >
+        android:theme="@style/Theme.Karigar" >
         <activity
             android:name="com.kaarigar.ui.auth.AuthActivity"
             android:exported="true" >

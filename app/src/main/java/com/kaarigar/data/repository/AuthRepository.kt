@@ -51,27 +51,28 @@ class AuthRepository(
                 val doc = try {
                      firestore.collection("users").document(uid).get().await()
                 } catch (e: Exception) {
-                    Log.e("AuthRepo", "Firestore unreachable: ${e.message}. using fallback.")
-                    null // Return null to trigger fallback
+                    Log.e("AuthRepo", "Firestore unreachable: ${e.message}")
+                    null
                 }
                 
-                val name = doc?.getString("name") ?: "User"
-                val role = doc?.getString("role") ?: "CUSTOMER"
-                val phone = doc?.getString("phone")
-                Log.d("AuthRepo", "Firestore results - Name: $name, Role: $role")
-                
-                val userEntity = UserEntity(
-                    uid = uid,
-                    name = name,
-                    email = email,
-                    role = role,
-                    phoneNumber = phone
-                )
-                
-                // Cache to Room
-                userDao.insertUser(userEntity)
-                
-                return@withContext Resource.success(userEntity)
+                if (doc != null && doc.exists()) {
+                    val name = doc.getString("name") ?: "User"
+                    val role = doc.getString("role") ?: "CUSTOMER"
+                    val phone = doc.getString("phone")
+                    
+                    val userEntity = UserEntity(
+                        uid = uid,
+                        name = name,
+                        email = email,
+                        role = role.trim().uppercase(),
+                        phoneNumber = phone
+                    )
+                    userDao.insertUser(userEntity)
+                    return@withContext Resource.success(userEntity)
+                } else {
+                    Log.e("AuthRepo", "User doc MISSING for $uid. No default to CUSTOMER to avoid misrouting.")
+                    return@withContext Resource.error("Profile not found. Please contact Admin.")
+                }
             } catch (e: Exception) {
                 Log.e("AuthRepo", "Login error: ${e.message}", e)
                 return@withContext Resource.error(e.message ?: "Login Failed")
@@ -101,7 +102,7 @@ class AuthRepository(
                     "uid" to uid,
                     "name" to name,
                     "email" to email,
-                    "role" to finalRole,
+                    "role" to finalRole.trim().uppercase(),
                     "phone" to phone,
                     "createdAt" to System.currentTimeMillis()
                 )

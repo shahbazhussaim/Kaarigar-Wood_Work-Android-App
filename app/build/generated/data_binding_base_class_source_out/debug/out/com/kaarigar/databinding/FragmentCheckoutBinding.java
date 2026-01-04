@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
@@ -43,10 +44,17 @@ public final class FragmentCheckoutBinding implements ViewBinding {
   @NonNull
   public final RadioGroup rgPayment;
 
+  @NonNull
+  public final TextView tvOrderSummary;
+
+  @NonNull
+  public final TextView tvTotalPrice;
+
   private FragmentCheckoutBinding(@NonNull NestedScrollView rootView,
       @NonNull MaterialButton btnPlaceOrder, @NonNull TextInputEditText etAddress,
       @NonNull TextInputEditText etDate, @NonNull TextInputEditText etPhone,
-      @NonNull RadioButton rbCOD, @NonNull RadioButton rbOnline, @NonNull RadioGroup rgPayment) {
+      @NonNull RadioButton rbCOD, @NonNull RadioButton rbOnline, @NonNull RadioGroup rgPayment,
+      @NonNull TextView tvOrderSummary, @NonNull TextView tvTotalPrice) {
     this.rootView = rootView;
     this.btnPlaceOrder = btnPlaceOrder;
     this.etAddress = etAddress;
@@ -55,6 +63,8 @@ public final class FragmentCheckoutBinding implements ViewBinding {
     this.rbCOD = rbCOD;
     this.rbOnline = rbOnline;
     this.rgPayment = rgPayment;
+    this.tvOrderSummary = tvOrderSummary;
+    this.tvTotalPrice = tvTotalPrice;
   }
 
   @Override
@@ -126,8 +136,20 @@ public final class FragmentCheckoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvOrderSummary;
+      TextView tvOrderSummary = ViewBindings.findChildViewById(rootView, id);
+      if (tvOrderSummary == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTotalPrice;
+      TextView tvTotalPrice = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotalPrice == null) {
+        break missingId;
+      }
+
       return new FragmentCheckoutBinding((NestedScrollView) rootView, btnPlaceOrder, etAddress,
-          etDate, etPhone, rbCOD, rbOnline, rgPayment);
+          etDate, etPhone, rbCOD, rbOnline, rgPayment, tvOrderSummary, tvTotalPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

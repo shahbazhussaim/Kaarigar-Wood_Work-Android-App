@@ -46,6 +46,33 @@ class AddProductFragment : Fragment() {
         binding.btnUploadImage.setOnClickListener { getContent.launch("image/*") }
 
         binding.btnSaveProduct.setOnClickListener { saveProduct() }
+        
+        // Check for Edit Mode
+        val editId = arguments?.getString("productId")
+        if (editId != null) {
+            loadProductForEdit(editId)
+        }
+    }
+
+    private fun loadProductForEdit(id: String) {
+        binding.btnSaveProduct.text = "Update Product"
+        db.collection("products").document(id).get().addOnSuccessListener { doc ->
+            if (doc.exists()) {
+                binding.etProductName.setText(doc.getString("name"))
+                val rawPrice = doc.getString("price")?.replace("₹", "")?.trim() ?: ""
+                binding.etPrice.setText(rawPrice)
+                binding.etDescription.setText(doc.getString("description"))
+                // Categories
+                val category = doc.getString("category")
+                for (i in 0 until binding.cgCategory.childCount) {
+                    val chip = binding.cgCategory.getChildAt(i) as Chip
+                    if (chip.text == category) {
+                        chip.isChecked = true
+                        break
+                    }
+                }
+            }
+        }
     }
 
     private fun saveProduct() {
@@ -100,15 +127,24 @@ class AddProductFragment : Fragment() {
                 binding.btnSaveProduct.text = "Saving Data..."
                 saveToFirestore(name, price, desc, category, downloadUri.toString())
             } else {
-                // FALLBACK: Store without image if Storage fails (e.g. Quota exceeded)
+                // FALLBACK: Store with a local resource name if Storage fails
                 val error = task.exception?.message ?: "Unknown"
-                Toast.makeText(context, "Storage Error ($error). Saving without image.", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Storage Error ($error). Using local image fallback.", Toast.LENGTH_LONG).show()
                 
-                // Use a default placeholder URL (or empty string)
-                val placeholderUrl = "https://via.placeholder.com/150" 
-                saveToFirestore(name, price, desc, category, placeholderUrl)
+                // Map category to a random local image name
+                val localImageName = getLocalImageForCategory(category)
+                saveToFirestore(name, price, desc, category, "local://$localImageName")
             }
         }
+    }
+
+    private fun getLocalImageForCategory(category: String): String {
+        val randomNum = (1..5).random()
+        val cleanCategory = category.lowercase().replace(" ", "_")
+        
+        // This will produce strings like "door_1", "kitchen_2", etc.
+        // If the user hasn't added these yet, it will fallback to wood_cabinet in the Adapter.
+        return "${cleanCategory}_$randomNum"
     }
 
     private fun saveToFirestore(
@@ -128,19 +164,39 @@ class AddProductFragment : Fragment() {
                         "timestamp" to System.currentTimeMillis()
                 )
 
-        db.collection("products")
-                .add(product)
-                .addOnSuccessListener {
-                    Toast.makeText(context, "Product Added Successfully!", Toast.LENGTH_SHORT)
-                            .show()
-                    findNavController().popBackStack()
-                }
-                .addOnFailureListener { e ->
-                    binding.btnSaveProduct.isEnabled = true
-                    binding.btnSaveProduct.text = "Save Product"
-                    Toast.makeText(context, "Failed to save: ${e.message}", Toast.LENGTH_SHORT)
-                            .show()
-                }
+        val editId = arguments?.getString("productId")
+        val task = if (editId != null) {
+            db.collection("products").document(editId).set(product)
+        } else {
+            db.collection("products").add(product)
+        }
+
+        task.addOnSuccessListener {
+            val msg = if (editId != null) "Product Updated!" else "Product Added Successfully!"
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+            
+            if (editId != null) {
+                findNavController().popBackStack()
+            } else {
+                clearForm()
+            }
+        }
+        .addOnFailureListener { e ->
+            binding.btnSaveProduct.isEnabled = true
+            binding.btnSaveProduct.text = if (editId != null) "Update Product" else "Save Product"
+            Toast.makeText(context, "Failed to save: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun clearForm() {
+        binding.etProductName.text?.clear()
+        binding.etPrice.text?.clear()
+        binding.etDescription.text?.clear()
+        binding.cgCategory.clearCheck()
+        binding.ivPreview.visibility = View.GONE
+        imageUri = null
+        binding.btnSaveProduct.isEnabled = true
+        binding.btnSaveProduct.text = "Save Product"
     }
 
     override fun onDestroyView() {

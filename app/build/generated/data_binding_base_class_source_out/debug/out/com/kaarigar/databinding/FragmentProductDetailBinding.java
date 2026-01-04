@@ -15,6 +15,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.kaarigar.R;
@@ -45,6 +46,15 @@ public final class FragmentProductDetailBinding implements ViewBinding {
   public final MaterialButton btnWriteReview;
 
   @NonNull
+  public final MaterialCardView cardThumb1;
+
+  @NonNull
+  public final MaterialCardView cardThumb2;
+
+  @NonNull
+  public final MaterialCardView cardThumb3;
+
+  @NonNull
   public final ChipGroup cgColors;
 
   @NonNull
@@ -69,6 +79,15 @@ public final class FragmentProductDetailBinding implements ViewBinding {
   public final ImageView ivProductLarge;
 
   @NonNull
+  public final ImageView ivThumb1;
+
+  @NonNull
+  public final ImageView ivThumb2;
+
+  @NonNull
+  public final ImageView ivThumb3;
+
+  @NonNull
   public final Toolbar toolbar;
 
   @NonNull
@@ -90,12 +109,14 @@ public final class FragmentProductDetailBinding implements ViewBinding {
       @NonNull AppBarLayout appBar, @NonNull MaterialButton btnAddToCart,
       @NonNull MaterialButton btnBuyNow, @NonNull ImageButton btnQtyMinus,
       @NonNull ImageButton btnQtyPlus, @NonNull MaterialButton btnWriteReview,
-      @NonNull ChipGroup cgColors, @NonNull ChipGroup cgSizes, @NonNull Chip chipDarkOak,
-      @NonNull Chip chipLarge, @NonNull Chip chipMedium, @NonNull Chip chipNatural,
-      @NonNull Chip chipSmall, @NonNull ImageView ivProductLarge, @NonNull Toolbar toolbar,
-      @NonNull TextView tvProductDescription, @NonNull TextView tvProductName,
-      @NonNull TextView tvProductPrice, @NonNull TextView tvQuantity,
-      @NonNull TextView tvStockStatus) {
+      @NonNull MaterialCardView cardThumb1, @NonNull MaterialCardView cardThumb2,
+      @NonNull MaterialCardView cardThumb3, @NonNull ChipGroup cgColors, @NonNull ChipGroup cgSizes,
+      @NonNull Chip chipDarkOak, @NonNull Chip chipLarge, @NonNull Chip chipMedium,
+      @NonNull Chip chipNatural, @NonNull Chip chipSmall, @NonNull ImageView ivProductLarge,
+      @NonNull ImageView ivThumb1, @NonNull ImageView ivThumb2, @NonNull ImageView ivThumb3,
+      @NonNull Toolbar toolbar, @NonNull TextView tvProductDescription,
+      @NonNull TextView tvProductName, @NonNull TextView tvProductPrice,
+      @NonNull TextView tvQuantity, @NonNull TextView tvStockStatus) {
     this.rootView = rootView;
     this.appBar = appBar;
     this.btnAddToCart = btnAddToCart;
@@ -103,6 +124,9 @@ public final class FragmentProductDetailBinding implements ViewBinding {
     this.btnQtyMinus = btnQtyMinus;
     this.btnQtyPlus = btnQtyPlus;
     this.btnWriteReview = btnWriteReview;
+    this.cardThumb1 = cardThumb1;
+    this.cardThumb2 = cardThumb2;
+    this.cardThumb3 = cardThumb3;
     this.cgColors = cgColors;
     this.cgSizes = cgSizes;
     this.chipDarkOak = chipDarkOak;
@@ -111,6 +135,9 @@ public final class FragmentProductDetailBinding implements ViewBinding {
     this.chipNatural = chipNatural;
     this.chipSmall = chipSmall;
     this.ivProductLarge = ivProductLarge;
+    this.ivThumb1 = ivThumb1;
+    this.ivThumb2 = ivThumb2;
+    this.ivThumb3 = ivThumb3;
     this.toolbar = toolbar;
     this.tvProductDescription = tvProductDescription;
     this.tvProductName = tvProductName;
@@ -182,6 +209,24 @@ public final class FragmentProductDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.cardThumb1;
+      MaterialCardView cardThumb1 = ViewBindings.findChildViewById(rootView, id);
+      if (cardThumb1 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardThumb2;
+      MaterialCardView cardThumb2 = ViewBindings.findChildViewById(rootView, id);
+      if (cardThumb2 == null) {
+        break missingId;
+      }
+
+      id = R.id.cardThumb3;
+      MaterialCardView cardThumb3 = ViewBindings.findChildViewById(rootView, id);
+      if (cardThumb3 == null) {
+        break missingId;
+      }
+
       id = R.id.cgColors;
       ChipGroup cgColors = ViewBindings.findChildViewById(rootView, id);
       if (cgColors == null) {
@@ -230,6 +275,24 @@ public final class FragmentProductDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ivThumb1;
+      ImageView ivThumb1 = ViewBindings.findChildViewById(rootView, id);
+      if (ivThumb1 == null) {
+        break missingId;
+      }
+
+      id = R.id.ivThumb2;
+      ImageView ivThumb2 = ViewBindings.findChildViewById(rootView, id);
+      if (ivThumb2 == null) {
+        break missingId;
+      }
+
+      id = R.id.ivThumb3;
+      ImageView ivThumb3 = ViewBindings.findChildViewById(rootView, id);
+      if (ivThumb3 == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -267,9 +330,10 @@ public final class FragmentProductDetailBinding implements ViewBinding {
       }
 
       return new FragmentProductDetailBinding((CoordinatorLayout) rootView, appBar, btnAddToCart,
-          btnBuyNow, btnQtyMinus, btnQtyPlus, btnWriteReview, cgColors, cgSizes, chipDarkOak,
-          chipLarge, chipMedium, chipNatural, chipSmall, ivProductLarge, toolbar,
-          tvProductDescription, tvProductName, tvProductPrice, tvQuantity, tvStockStatus);
+          btnBuyNow, btnQtyMinus, btnQtyPlus, btnWriteReview, cardThumb1, cardThumb2, cardThumb3,
+          cgColors, cgSizes, chipDarkOak, chipLarge, chipMedium, chipNatural, chipSmall,
+          ivProductLarge, ivThumb1, ivThumb2, ivThumb3, toolbar, tvProductDescription,
+          tvProductName, tvProductPrice, tvQuantity, tvStockStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

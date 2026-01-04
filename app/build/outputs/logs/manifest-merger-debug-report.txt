@@ -286,11 +286,11 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\SY
 	android:allowBackup
 		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:21:9-46
+		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:21:9-45
 	android:dataExtractionRules
 		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:15:9-65
 	android:name
-		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:13:9-36
+		ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:13:9-35
 activity#com.kaarigar.ui.auth.AuthActivity
 ADDED from D:\Documents\5 sem\MAD LAB\Kaarigar Wood Work\app\src\main\AndroidManifest.xml:24:9-31:20
 	android:exported

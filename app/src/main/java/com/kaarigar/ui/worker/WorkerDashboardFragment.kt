@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.kaarigar.KaarigarApp
+import com.kaarigar.KarigarApp
 import com.kaarigar.R
 import com.kaarigar.databinding.FragmentWorkerDashboardBinding
 import com.kaarigar.ui.auth.AuthActivity
@@ -31,6 +31,7 @@ class WorkerDashboardFragment : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
     private lateinit var adapter: WorkerTaskAdapter
+    private var currentFilterMode = "All"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +45,22 @@ class WorkerDashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         setupRecyclerView()
-        loadTasks()
+        
+        // Default load
+        loadTasks(currentFilterMode)
+        
+        binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
+            currentFilterMode = if (checkedIds.contains(R.id.chipAccepted)) {
+                "Accepted"
+            } else {
+                "All"
+            }
+            loadTasks(currentFilterMode)
+        }
         
         binding.btnLogout.setOnClickListener {
              auth.signOut()
-             val database = (requireActivity().application as KaarigarApp).database
+             val database = (requireActivity().application as KarigarApp).database
              CoroutineScope(Dispatchers.IO).launch {
                  database.userDao().clearUsers()
              }
@@ -67,57 +79,91 @@ class WorkerDashboardFragment : Fragment() {
         binding.rvWorkerTasks.adapter = adapter
     }
 
-    private fun loadTasks() {
-        // Workers see PENDING and ACCEPTED Requests
+    private fun loadTasks(filterMode: String) {
+        val currentUserId = auth.currentUser?.uid ?: return
+        
+        // Show PENDING (available for all) AND My Accepted/Completed ones
+        // Status PENDING is locked to nobody.
+        // Status ACCEPTED/COMPLETED is locked to the assignedWorkerId.
+        
         db.collection("requests")
-            .whereIn("status", listOf("PENDING", "ACCEPTED"))
             .orderBy("timestamp", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { documents ->
-                 val tasks = documents.map { 
+                val allFetched = documents.mapNotNull { 
                     val data = it.data.toMutableMap()
                     data["id"] = it.id
                     data
                 }
-                adapter.updateData(tasks)
+                
+                val filtered = allFetched.filter { task ->
+                    val status = (task["status"] as? String)?.uppercase() ?: "PENDING"
+                    val assignedId = task["assignedWorkerId"] as? String
+                    
+                    if (filterMode == "Accepted") {
+                        // Accepted Tab: Show only those assigned to ME (Accepted or Completed)
+                        assignedId == currentUserId && (status == "ACCEPTED" || status == "COMPLETED")
+                    } else {
+                        // All Tab logic per requirement:
+                        // "Show ALL maintenance requests EXCEPT requests already accepted by other workers"
+                        // PLUS "requests already accepted by THIS worker"
+                        if (status == "PENDING") {
+                            true // Available for everyone
+                        } else {
+                            // Already accepted: Show only if it's MINE
+                            assignedId == currentUserId
+                        }
+                    }
+                }
+                
+                adapter.updateData(filtered)
+                binding.llEmptyState.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
             }
             .addOnFailureListener {
-                Toast.makeText(context, "Error loading tasks", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error loading tasks: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
     
     private fun showTaskDetailDialog(task: Map<String, Any>) {
         val id = task["id"] as String
-        val desc = task["description"] as? String ?: "No Description"
-        val status = task["status"] as? String ?: "PENDING"
-        val price = task["estimatedPrice"] as? String ?: "N/A"
-        
-        val builder = AlertDialog.Builder(requireContext())
-            .setTitle(if (status == "PENDING") "New Job Request" else "Active Job")
-            .setMessage("Description: $desc\nPrice Estimate: ₹$price\n\nCurrent Status: $status")
-            
-        if (status == "PENDING") {
-             builder.setPositiveButton("Accept Job") { _, _ ->
-                 updateTaskStatus(id, "ACCEPTED")
-             }
-             builder.setNegativeButton("Ignore", null)
-        } else if (status == "ACCEPTED") {
-             builder.setPositiveButton("Mark Completed") { _, _ ->
-                 updateTaskStatus(id, "COMPLETED")
-             }
-             builder.setNeutralButton("Cancel Job") { _, _ ->
-                 updateTaskStatus(id, "CANCELLED")
-             }
+        val bundle = Bundle().apply {
+            putString("requestId", id)
         }
+        androidx.navigation.fragment.NavHostFragment.findNavController(this).navigate(
+            R.id.action_workerDashboard_to_requestDetail, 
+            bundle
+        )
+    }
+    
+    private fun acceptTask(id: String) {
+        val currentUserId = auth.currentUser?.uid ?: return
         
-        builder.show()
+        // We need the worker's name to save it
+        db.collection("users").document(currentUserId).get().addOnSuccessListener { userDoc ->
+            val workerName = userDoc.getString("name") ?: "Worker"
+            
+            val updates = hashMapOf<String, Any>(
+                "status" to "ACCEPTED",
+                "assignedWorkerId" to currentUserId,
+                "assignedWorkerName" to workerName
+            )
+            
+            db.collection("requests").document(id).update(updates)
+                .addOnSuccessListener {
+                     Toast.makeText(context, "Job Accepted!", Toast.LENGTH_SHORT).show()
+                     loadTasks(currentFilterMode) // Refresh default
+                }
+                .addOnFailureListener {
+                    Toast.makeText(context, "Failed to accept job", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 
     private fun updateTaskStatus(id: String, status: String) {
         db.collection("requests").document(id).update("status", status)
             .addOnSuccessListener {
                 Toast.makeText(context, "Status moved to $status", Toast.LENGTH_SHORT).show()
-                loadTasks()
+                loadTasks(currentFilterMode)
             }
             .addOnFailureListener {
                 Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show()
@@ -162,8 +208,13 @@ class WorkerTaskAdapter(
         holder.tvDate.text = sdf.format(timestamp)
         
         holder.tvDesc.text = desc
-        holder.tvStatus.text = "Action Required"
-        holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_yellow)
+        holder.tvStatus.text = status
+        when(status.uppercase()) {
+            "PENDING" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_yellow)
+            "ACCEPTED" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_green)
+            "COMPLETED" -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_gray)
+            else -> holder.tvStatus.setBackgroundResource(R.drawable.bg_capsule_yellow)
+        }
         holder.tvTotal.visibility = View.GONE 
         
         holder.itemView.setOnClickListener { 
